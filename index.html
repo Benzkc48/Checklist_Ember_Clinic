@@ -265,30 +265,22 @@
         <div id="resultsList" class="results-list"></div>
       </section>
 
-      <section class="panel ai-check" id="aiFallback">
+      <section class="panel ai-check" id="ocrPanel">
         <div class="panel-head">
-          <h2>ตรวจจากภาพ/วิดีโอโฆษณา (AI)</h2>
-          <span class="tag">ต้องเปิดผ่านลิงก์</span>
+          <h2>ตรวจจากภาพ/วิดีโอโฆษณา (อ่านข้อความในเบราว์เซอร์)</h2>
+          <span class="tag">ใช้ได้ทุกคน ไม่ต้องมีบัญชี</span>
         </div>
-        <p class="hint">ฟีเจอร์นี้อ่านข้อความในภาพ/เฟรมวิดีโอด้วย AI ของ Claude แล้วตรวจตามหมวดคำต้องห้ามเดียวกับด้านบน — ใช้งานได้เฉพาะเมื่อเปิดหน้านี้ผ่านลิงก์ที่เผยแพร่ไว้ (ไม่ใช่ไฟล์ .html ที่ดาวน์โหลดมาเปิดตรงๆ) เพราะต้องเชื่อมกับบัญชี Claude ของคุณ</p>
-        <p class="ai-note">เปิดลิงก์เวอร์ชันเต็มเพื่อใช้ตรวจภาพ/วิดีโอ: <a href="https://claude.ai/artifact/AK5H1MRXocTriMryhxpu2o" target="_blank" rel="noopener noreferrer">claude.ai/artifact/AK5H1MRXocTriMryhxpu2o</a></p>
-      </section>
-
-      <section class="panel ai-check" id="aiPanel" hidden>
-        <div class="panel-head">
-          <h2>ตรวจจากภาพ/วิดีโอโฆษณา (AI)</h2>
-          <span class="tag">ใช้โควตา Claude ของคุณ</span>
-        </div>
-        <p class="hint">อัปโหลดภาพหรือคลิปวิดีโอโฆษณา — AI จะอ่านข้อความ/คำกล่าวอ้างในภาพ แล้วตรวจตามหมวดคำต้องห้ามเดียวกับด้านบน (วิดีโอจะสุ่มดึงมาตรวจบางเฟรมเท่านั้น ไม่ใช่ทั้งคลิป)</p>
-        <input type="file" id="aiFile" accept="image/*,video/*" />
-        <div id="aiPreview" class="ai-preview"></div>
+        <p class="hint">อัปโหลดภาพหรือคลิปวิดีโอโฆษณา — เครื่องมือจะอ่านตัวอักษรในภาพด้วยไลบรารี OCR ที่ทำงานอยู่ในเบราว์เซอร์ของคุณเอง (ไม่ส่งไฟล์ออกไปที่ไหน ไม่ต้องล็อกอินหรือมีบัญชี Claude) แล้วนำข้อความที่อ่านได้มาตรวจกับฐานคำต้องห้ามเดียวกับด้านบน (วิดีโอจะสุ่มดึงมาตรวจบางเฟรมเท่านั้น ไม่ใช่ทั้งคลิป)</p>
+        <input type="file" id="ocrFile" accept="image/*,video/*" />
+        <div id="ocrPreview" class="ai-preview"></div>
         <div class="actions">
-          <button id="btnAiCheck" type="button" disabled>ตรวจด้วย AI</button>
-          <button id="btnAiClear" type="button" class="ghost">ล้าง</button>
+          <button id="btnOcrCheck" type="button" disabled>อ่านและตรวจข้อความ</button>
+          <button id="btnOcrClear" type="button" class="ghost">ล้าง</button>
         </div>
-        <p class="ai-note">การตรวจนี้ใช้โควตาการใช้งาน Claude ของบัญชีคุณเอง ระบบจะขอสิทธิ์การใช้งานในครั้งแรกที่กดตรวจ</p>
-        <div id="aiStatus" class="ai-status" hidden></div>
-        <div id="aiResults" class="results-list"></div>
+        <p class="ai-note">ครั้งแรกที่ใช้งานจะโหลดไลบรารีอ่านตัวอักษรไทย+อังกฤษเพิ่มเติมสักครู่ (ขึ้นกับความเร็วอินเทอร์เน็ต) ใช้งานได้เต็มรูปแบบเมื่อเปิดจากไฟล์ .html ที่ดาวน์โหลดมา — ลิงก์เว็บเวอร์ชันเผยแพร่อาจบล็อกการโหลดสคริปต์นี้ด้วยเหตุผลด้านความปลอดภัย ความแม่นยำในการอ่านขึ้นกับความชัดของตัวอักษรในภาพ อาจพลาดได้กับฟอนต์ตกแต่ง/พื้นหลังลายซับซ้อน จึงยังควรตรวจด้วยตาอีกครั้งเสมอ</p>
+        <div id="ocrStatus" class="ai-status" hidden></div>
+        <div id="ocrTextPreview" class="highlighted-box" hidden></div>
+        <div id="ocrResults" class="results-list"></div>
       </section>
     </div>
 
@@ -297,11 +289,13 @@
         <h2>ข้อกำหนดทางกฎหมายที่เกี่ยวข้อง</h2>
         <div class="law-block">
           <p><b>หลักการ:</b> สถานพยาบาลต้องขออนุมัติโฆษณาจาก สบส. <u>ก่อน</u>เผยแพร่ทุกช่องทาง (ป้าย, เว็บไซต์, โซเชียลมีเดีย) และต้องแสดงเลขที่อนุมัติ “ฆสพ.สบส. ..../....” กำกับไว้ในสื่อโฆษณาทุกชิ้น</p>
-          <p class="cite">ตาม พ.ร.บ.สถานพยาบาล พ.ศ. 2541 มาตรา 38, ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์ วิธีการ เงื่อนไข และค่าใช้จ่ายในการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล พ.ศ. 2562 และแนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569</p>
+          <p class="cite">ตาม พ.ร.บ.สถานพยาบาล พ.ศ. 2541 มาตรา 38, ประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546 (18 ข้อห้ามเชิงเนื้อหา), ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์ วิธีการ เงื่อนไข และค่าใช้จ่ายในการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล พ.ศ. 2562, แนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569 และประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา</p>
         </div>
         <div class="penalty">
-          <b>บทลงโทษ (มาตรา 68):</b> โฆษณาโดยไม่ได้รับอนุมัติ — ปรับไม่เกิน 20,000 บาท ต่อหนึ่งช่องทาง · เนื้อหาโฆษณาเป็นเท็จ/เกินจริง — จำคุกไม่เกิน 1 ปี หรือปรับไม่เกิน 20,000 บาท หรือทั้งจำทั้งปรับ ต่อหนึ่งช่องทาง และอาจถูกปรับเพิ่มเป็นรายวันตลอดเวลาที่ยังฝ่าฝืน
+          <b>บทลงโทษ (มาตรา 68):</b> โฆษณาโดยไม่ได้รับอนุมัติ — ปรับไม่เกิน 20,000 บาท ต่อหนึ่งช่องทาง · เนื้อหาโฆษณาเป็นเท็จ/เกินจริง — จำคุกไม่เกิน 1 ปี หรือปรับไม่เกิน 20,000 บาท หรือทั้งจำทั้งปรับ ต่อหนึ่งช่องทาง และอาจถูกปรับเพิ่มเป็นรายวันตลอดเวลาที่ยังฝ่าฝืน<br>
+          <b>ทางจรรยาบรรณแพทย์:</b> ตามประกาศแพทยสภาที่มีผลบังคับ ก.พ. 2568 แพทย์ที่โฆษณาชวนเชื่อ/ให้ผู้อื่นใช้ชื่อเปิดคลินิก (“หมอแขวนป้าย”) มีโทษ <b>พักใช้ใบอนุญาตประกอบวิชาชีพ 1 ปีทันที</b> แม้ทำผิดเป็นครั้งแรก
         </div>
+        <p class="cite" style="margin-top:8px;">หมายเหตุ: ประกาศแพทยสภา 50/2549 ยังระบุคำต้องห้ามเพิ่มเติมที่เป็นคำไทยทั่วไป เช่น “เพียง”, “เท่านั้น”, “พิเศษ”, “เฉพาะ” — ระบบนี้ไม่ได้ตั้งให้จับคำเหล่านี้อัตโนมัติเพราะพบได้ในประโยคทั่วไปแทบทุกประโยค (จะแจ้งเตือนถี่เกินไป) แต่ควรตระหนักและเลี่ยงเมื่อใช้ในเชิงอวดอ้างสรรพคุณ/ราคา</p>
       </section>
 
       <section class="panel">
@@ -315,6 +309,13 @@
           <li>ให้บริการแบบ Tele-Medicine ต้องยื่นขึ้นทะเบียนบริการเพิ่มเติมก่อนโฆษณา</li>
           <li>หลีกเลี่ยงถ้อยคำสองแง่สองง่ามหรือสื่อทางเพศในการโฆษณาทุกกรณี</li>
           <li>คำรีวิว/รูปผู้ใช้บริการ ได้รับความยินยอมเป็นลายลักษณ์อักษรก่อนนำมาเผยแพร่</li>
+          <li>ห้ามระบุชื่อแบรนด์/ยี่ห้อทางการค้าของสารฉีด (เช่น ชื่อการค้าของโบทูลินัมท็อกซิน) ในโฆษณา</li>
+          <li>ห้ามถ่ายทอดสด/ไลฟ์สดขณะทำหัตถการ และห้ามแสดงภาพแพทย์คู่กับยา/เวชภัณฑ์ในเชิงขาย</li>
+          <li>ระบุชื่อ-นามสกุลจริงของแพทย์พร้อมเลขใบอนุญาตเสมอ ห้ามใช้ชื่อเล่นเพียงอย่างเดียว</li>
+          <li>ห้ามอ้างว่ารักษาโรคใดได้ เว้นแต่มีหลักฐานทางวิชาการรองรับอย่างน้อย 80% ตามเกณฑ์แพทยสภา</li>
+          <li>ห้ามโฆษณาบริการฟรี/ของรางวัล/ชิงโชคที่ผูกกับบริการทางการแพทย์ เว้นแต่เพื่อการกุศลหรือราคาที่ตกลงล่วงหน้ากับกลุ่มลูกค้า</li>
+          <li>ห้ามใช้ภาพที่ทำให้ตกใจกลัว ลามกอนาจาร หรือภาพผู้ป่วยในลักษณะน่าสมเพช และห้ามหมิ่นประมาทสถานพยาบาลอื่น</li>
+          <li>ห้ามระบุ/อ้างประเทศแหล่งผลิตหรือแหล่งนำเข้าของฟิลเลอร์และโบทูลินัมท็อกซิน (เช่น “แท้จากเกาหลี”, “นำเข้าจากอเมริกา”) เพราะเข้าข่ายเปิดเผยยี่ห้อโดยปริยายและผู้บริโภคตรวจสอบไม่ได้จากโฆษณา — ให้แนะนำผู้บริโภคตรวจสอบทะเบียนกับ อย. โดยตรงแทน</li>
         </ul>
       </section>
 
@@ -337,14 +338,29 @@
           <li><a href="https://mrd.hss.moph.go.th/mrd1_hss/?p=7446" target="_blank" rel="noopener noreferrer">กองสถานพยาบาลและการประกอบโรคศิลปะ — ข้อกฎหมายการโฆษณาสถานพยาบาล</a></li>
           <li><a href="https://www.kanpho.go.th/consumer/images/Form-Drugstore/example-word-advertise.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความการโฆษณาสถานพยาบาล (PDF) — สสจ.ขอนแก่น</a></li>
           <li><a href="https://fdasamutsongkhram.org/clinic-advertising/" target="_blank" rel="noopener noreferrer">การโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล — สสจ.สมุทรสงคราม</a></li>
+          <li><a href="https://www.tmc.or.th/download/50_49.pdf" target="_blank" rel="noopener noreferrer">ประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา (PDF ทางการ — tmc.or.th)</a></li>
+          <li><a href="https://www.bangkokbiznews.com/social/688936" target="_blank" rel="noopener noreferrer">สธ. กาง 18 ข้อห้ามโฆษณาคลินิก - 15 คำห้ามแพทย์จ้อ — Bangkokbiznews</a></li>
+          <li><a href="https://www.komchadluek.net/news/edu-health/223391" target="_blank" rel="noopener noreferrer">15 คำห้ามแพทย์โม้โฆษณา — คมชัดลึก</a></li>
+          <li><a href="https://www.hfocus.org/content/2025/01/32869" target="_blank" rel="noopener noreferrer">แพทยสภาออกประกาศใหม่ เพิ่มโทษพักใช้ใบอนุญาตแพทย์โฆษณาชวนเชื่อ — Hfocus</a></li>
+          <li><a href="https://dgh.agency/beauty-clinic-advertising-qa-2025/" target="_blank" rel="noopener noreferrer">รวม 18 คำถาม-คำตอบ กฎการโฆษณาคลินิกความงามฉบับใหม่ (มี.ค. 2568) — dgh.agency</a></li>
+          <li><a href="https://cemc.fda.moph.go.th/press-release/296" target="_blank" rel="noopener noreferrer">ตำรวจ CIB ร่วม อย. ทลายแหล่งซุกโบท็อก-ฟิลเลอร์เถื่อน ส่งขายคลินิกทั่วประเทศ — ข่าวแจ้ง อย. (ทางการ)</a></li>
+          <li><a href="https://www.bangkokbiznews.com/health/public-health/1159692" target="_blank" rel="noopener noreferrer">เช็กชัดๆ “ฟิลเลอร์” ยี่ห้อไหนผ่านอย. ย้ำโฆษณาไม่ตรงรับอนุญาต ระงับทันที — Bangkokbiznews</a></li>
+          <li><a href="https://www.thaipbs.or.th/news/content/284389" target="_blank" rel="noopener noreferrer">ขยายผลจับกุม “โบท็อกซ์-ฟิลเลอร์” ผิดกฎหมาย — Thai PBS</a></li>
+          <li><a href="https://mgronline.com/crime/detail/9640000061060" target="_blank" rel="noopener noreferrer">ทลายโกดังจำหน่ายฟิลเลอร์-โบท็อกซ์เถื่อน มูลค่ากว่า 3 ล้านบาท — MGR Online</a></li>
+          <li><a href="https://www.matichon.co.th/local/news_4677367" target="_blank" rel="noopener noreferrer">บุกทลายแหล่งผลิต “โบท็อกซ์ปลอม” ยี่ห้อดังส่งคลินิกทั่วประเทศ — มติชน</a></li>
+          <li><a href="https://www.thairath.co.th/news/crime/2956689" target="_blank" rel="noopener noreferrer">ยึดโบท็อกซ์-ฟิลเลอร์เถื่อน ซุกคอนโดฯ ส่งขายตามออเดอร์ — ไทยรัฐ</a></li>
+          <li><a href="https://www.hfocus.org/content/2024/01/29618" target="_blank" rel="noopener noreferrer">สบส. เตือนหมอคลินิกความงาม ห้ามโฆษณา-รีวิวผลิตภัณฑ์ เข้าข่ายผิดกม.-จริยธรรม — Hfocus</a></li>
+          <li><a href="https://www.tcc.or.th/tcc_media/cosmetic-surgery/" target="_blank" rel="noopener noreferrer">ผู้บริโภคต้องรู้ โฆษณาเสริมความงามแบบไหนไม่ผิดกฎหมาย — สภาองค์กรของผู้บริโภค</a></li>
+          <li><a href="https://tgcthailand.com/blog/prohibited-words-and-phrases-not-allowed-in-cosmetic-advertising-updated-2026/" target="_blank" rel="noopener noreferrer">คำและข้อความต้องห้ามในการโฆษณาเครื่องสำอาง (อัปเดต 2026) — TGC Thailand</a></li>
+          <li><a href="https://amaranteclinic.co.th/blog/banned-words-healthcare-ads/" target="_blank" rel="noopener noreferrer">รวมคำต้องห้ามที่สถานพยาบาลไม่สามารถใช้โฆษณาได้ — Amarante Clinic</a></li>
         </ul>
       </section>
     </aside>
   </div>
 
   <footer>
-    <p id="lastUpdated">ปรับปรุงข้อมูลล่าสุด: 21 กันยายน 2569 (อ้างอิงแนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569)</p>
-    รวบรวมจากประกาศกรมสนับสนุนบริการสุขภาพว่าด้วยหลักเกณฑ์การโฆษณาสถานพยาบาล แนวทางข้อความโฆษณาฉบับปรับแก้ล่าสุด และแหล่งข้อมูลสาธารณสุข/สื่อวิชาการที่เกี่ยวข้อง (ดูรายการทั้งหมดในแหล่งอ้างอิงด้านบน) ใช้เป็นตัวช่วยคัดกรองเบื้องต้นเท่านั้น อาจมีคลาดเคลื่อนจากการถอดข้อความหรือมีการปรับปรุงเพิ่มเติมภายหลัง ไม่ใช่คำวินิจฉัยทางกฎหมายและไม่ทดแทนการขออนุมัติโฆษณาจาก สบส. หรือการปรึกษาฝ่ายกฎหมายก่อนเผยแพร่จริง
+    <p id="lastUpdated">ปรับปรุงข้อมูลล่าสุด: 28 กันยายน 2569 (อ้างอิงแนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569, ประกาศแพทยสภาที่ 50/2549, ประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546 และข่าวการตรวจจับสารฉีดเถื่อน/ไม่ขึ้นทะเบียนของ อย.)</p>
+    รวบรวมจากประกาศกระทรวงสาธารณสุข, ประกาศกรมสนับสนุนบริการสุขภาพว่าด้วยหลักเกณฑ์การโฆษณาสถานพยาบาล, แนวทางข้อความโฆษณาฉบับปรับแก้ล่าสุด, ประกาศแพทยสภาว่าด้วยคำต้องห้ามและบทลงโทษทางจรรยาบรรณ และแหล่งข้อมูลสาธารณสุข/สื่อวิชาการที่เกี่ยวข้อง (ดูรายการทั้งหมดในแหล่งอ้างอิงด้านบน) ใช้เป็นตัวช่วยคัดกรองเบื้องต้นเท่านั้น อาจมีคลาดเคลื่อนจากการถอดข้อความหรือมีการปรับปรุงเพิ่มเติมภายหลัง ไม่ใช่คำวินิจฉัยทางกฎหมายและไม่ทดแทนการขออนุมัติโฆษณาจาก สบส. หรือการปรึกษาฝ่ายกฎหมายก่อนเผยแพร่จริง
   </footer>
 </div>
 
@@ -364,7 +380,14 @@
       sev:"high",
       reason:"ผลการรักษาทางการแพทย์ไม่สามารถรับประกันหรือครอบคลุมได้ทุกกรณี ถ้อยคำเชิงอวดอ้าง การันตีผล หรืออ้างความครบถ้วนสมบูรณ์ เข้าข่ายโฆษณาเกินความเป็นจริง",
       fix:"ปรับเป็นถ้อยคำตามข้อเท็จจริง มีผลการศึกษา/หลักฐานอ้างอิงรองรับ หลีกเลี่ยงคำที่สื่อว่าผลลัพธ์แน่นอน ครบถ้วน หรือดีที่สุด",
-      terms:["การันตี","การันตีด้วยรางวัล","รับประกันผล","รับรองผล","เห็นผลจริง 100%","เห็นผลแน่นอน","หายขาด","ดีที่สุดในประเทศ","ดีที่สุด","เก่งที่สุด","สูงสุด","ขั้นสูง","มากที่สุด","ชนะเลิศ","มหัศจรรย์","อันดับ 1","GURU","กูรู","ครบวงจร","คลินิกครบวงจร","ครบครัน","ครั้งเดียวจบ","ครั้งแรกเห็นผลทันที","ครบทุกความเชี่ยวชาญ","ครบทุกด้านจริงๆ","ครบทุกองค์ประกอบ","ครบทุกปัญหาสุดๆ","ครอบคลุมทุกด้าน","ครอบคลุมทุกปัญหา","ครบที่สุด","ครบจบในเข็มเดียว","เทคนิคเฉพาะที่นี่ที่เดียว","ระดับพรีเมี่ยม","นวัตกรรมระดับโลก","ความเร็วแสง","ความเป็นเลิศ","ความนิยมเป็นอันดับต้น","ความงามเหนือกาลเวลา","คงผลลัพธ์ยาวนาน","ควบรวม 2 เทคโนโลยี","คุ้มจริง","คือสวยทันที","ของแท้แน่นอน","ดูดที่ทุกองศา","ด้วยยาสูตรพิเศษ","ได้ผลดีกว่า","ได้ในพริบตา","ดูอ่อนเยาว์ได้ยาวนาน","ได้ลึกและแม่นยำขึ้น","จบในที่เดียว","จบทุกความเจ็บ","เจ้าแรกในไทย","จบปัญหาสิวที่ต้นตอ","ช่วยปลดล็อก...ได้จริง","ช่วยแก้ไขปัญหาทั้งหมดนี้ได้","งานยากที่รักษาได้"],
+      terms:["การันตี","การันตีด้วยรางวัล","รับประกันผล","รับรองผล","เห็นผลจริง 100%","เห็นผลแน่นอน","หายขาด","ดีที่สุดในประเทศ","ดีที่สุด","เก่งที่สุด","สูงสุด","ขั้นสูง","มากที่สุด","ชนะเลิศ","มหัศจรรย์","อันดับ 1","GURU","กูรู","ครบวงจร","คลินิกครบวงจร","ครบครัน","ครั้งเดียวจบ","ครั้งแรกเห็นผลทันที","ครบทุกความเชี่ยวชาญ","ครบทุกด้านจริงๆ","ครบทุกองค์ประกอบ","ครบทุกปัญหาสุดๆ","ครอบคลุมทุกด้าน","ครอบคลุมทุกปัญหา","ครบที่สุด","ครบจบในเข็มเดียว","เทคนิคเฉพาะที่นี่ที่เดียว","ระดับพรีเมี่ยม","นวัตกรรมระดับโลก","ความเร็วแสง","ความเป็นเลิศ","ความนิยมเป็นอันดับต้น","ความงามเหนือกาลเวลา","คงผลลัพธ์ยาวนาน","ควบรวม 2 เทคโนโลยี","คุ้มจริง","คือสวยทันที","ของแท้แน่นอน","ดูดที่ทุกองศา","ด้วยยาสูตรพิเศษ","ได้ผลดีกว่า","ได้ในพริบตา","ดูอ่อนเยาว์ได้ยาวนาน","ได้ลึกและแม่นยำขึ้น","จบในที่เดียว","จบทุกความเจ็บ","เจ้าแรกในไทย","จบปัญหาสิวที่ต้นตอ","ช่วยปลดล็อก...ได้จริง","ช่วยแก้ไขปัญหาทั้งหมดนี้ได้","งานยากที่รักษาได้",
+        {t:"ล้ำสมัย", fix:"ต้องมีหลักฐาน/ผลการศึกษารองรับความล้ำสมัย มิฉะนั้นเข้าข่ายอวดอ้างเกินจริงตามประกาศแพทยสภาที่ 50/2549"},
+        {t:"นำสมัย", fix:"ต้องมีหลักฐานรองรับ มิฉะนั้นเข้าข่ายอวดอ้างเกินจริงตามประกาศแพทยสภาที่ 50/2549"},
+        {t:"สวยจริง", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างผลลัพธ์ความงามแบบชักจูงอารมณ์) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"อยากสวย", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 หลีกเลี่ยงการใช้ถ้อยคำกระตุ้นอารมณ์ในลักษณะนี้"},
+        {t:"งดงาม", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"สวยเหมือนธรรมชาติ", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"}
+      ],
       regex:["ครบ[^\\n]{0,15}จบ"]
     },
     {
@@ -381,7 +404,8 @@
       sev:"high",
       reason:"การใช้คำว่า “รักษา” กับภาวะที่ไม่ใช่โรค หรืออ้างหัตถการ/สารที่ อย. หรือแพทยสภายังไม่รับรอง ทำให้ผู้บริโภคเข้าใจผิดว่าเป็นการรักษาทางการแพทย์ที่ถูกต้อง",
       fix:"ใช้คำว่า “ดูแล/ปรับสภาพผิว” แทน “รักษา” สำหรับภาวะที่ไม่ใช่โรค และระบุเฉพาะหัตถการ/สารที่ได้รับอนุญาตถูกต้องตามกฎหมาย",
-      terms:["รักษาสิว","รักษาฝ้า","รักษาโรคอ้วน","รักษาผมร่วง","ฉีดพลาเซนต้า","ฉีดพลาเซนตา","ฉีดผิวขาว","กลูต้าเข้มข้น","cosmetic surgery","ย้อนวัย","ชะลอวัย","ชะลอความแก่ชรา","ฆ่าเชื้อสิว","ฆ่าไขมัน","ผ่าตัดขั้นสูง","การผ่าตัดขั้นสูง","กำเนิดเซลล์ผิวใหม่","เซลล์บำบัด","คอลลาเจนผิวเด็ก","แช่แข็งฝ้า","เคลียร์สารพิษให้ตับ","ควบคุมการหลั่ง","Growth Factor","PRP","Key Chelation","ฉีดไขมันปรับรูปหน้า","ฉีดสารเติมเต็มของเอเชีย"]
+      terms:["รักษาสิว","รักษาฝ้า","รักษาโรคอ้วน","รักษาผมร่วง","ฉีดพลาเซนต้า","ฉีดพลาเซนตา","ฉีดผิวขาว","กลูต้าเข้มข้น","cosmetic surgery","ย้อนวัย","ชะลอวัย","ชะลอความแก่ชรา","ฆ่าเชื้อสิว","ฆ่าไขมัน","ผ่าตัดขั้นสูง","การผ่าตัดขั้นสูง","กำเนิดเซลล์ผิวใหม่","เซลล์บำบัด","คอลลาเจนผิวเด็ก","แช่แข็งฝ้า","เคลียร์สารพิษให้ตับ","ควบคุมการหลั่ง","Growth Factor","PRP","Key Chelation","ฉีดไขมันปรับรูปหน้า","ฉีดสารเติมเต็มของเอเชีย","ขายเซลล์ต้นกำเนิด","stem cell"],
+      regex:["โรค[^\\n]{0,15}รักษาได้"]
     },
     {
       id:"shaming",
@@ -414,7 +438,18 @@
       sev:"medium",
       reason:"การโฆษณาเปรียบเทียบในเชิงทับถมคู่แข่ง หรืออ้างว่าดี/ถูกกว่าที่อื่นโดยไม่มีหลักฐาน เข้าข่ายโฆษณาที่ไม่เป็นธรรมทางการค้า",
       fix:"นำเสนอจุดเด่นของตนเองตามข้อเท็จจริง โดยไม่พาดพิงหรือเปรียบเทียบกับสถานพยาบาลอื่น",
-      terms:["ดีกว่าที่อื่น","ถูกกว่าคู่แข่ง","ที่อื่นไม่ปลอดภัย","คลินิกอื่นไม่ได้มาตรฐาน","เปรียบเทียบกับคลินิกอื่น","แกะจมูกมาจากที่อื่น"]
+      terms:["ดีกว่าที่อื่น","ถูกกว่าคู่แข่ง","ที่อื่นไม่ปลอดภัย","คลินิกอื่นไม่ได้มาตรฐาน","เปรียบเทียบกับคลินิกอื่น","แกะจมูกมาจากที่อื่น",
+        {t:"เหนือกว่า", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างความเหนือกว่าโดยไม่มีหลักฐานเทียบเคียง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"สูงกว่า", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างความเหนือกว่าโดยไม่มีหลักฐานเทียบเคียง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"}
+      ]
+    },
+    {
+      id:"contentRules",
+      label:"ข้อห้ามเชิงเนื้อหา ตามประกาศกระทรวงสาธารณสุข ฉบับที่ 11",
+      sev:"medium",
+      reason:"ประกาศกระทรวงสาธารณสุขห้ามโฆษณาบริการฟรี การลด แลก แจก แถม หรือใช้ของรางวัล/การชิงโชคเชื่อมโยงกับบริการทางการแพทย์ ยกเว้นกรณีเพื่อการกุศลหรือเป็นราคาที่ตกลงไว้ล่วงหน้ากับกลุ่มลูกค้า",
+      fix:"หลีกเลี่ยงการเสนอบริการฟรีหรือของรางวัล/ชิงโชคที่ผูกกับบริการทางการแพทย์ เว้นแต่เข้าเงื่อนไขข้อยกเว้นและระบุเงื่อนไขให้ชัดเจน",
+      terms:["ฟรี","แจกฟรี","แถมฟรี","ลดราคา","ส่วนลด","ของรางวัล","ชิงโชค"]
     },
     {
       id:"conditional",
@@ -427,6 +462,7 @@
         {t:"คลินิกลดน้ำหนัก", fix:"ควรใช้คำว่า “บริการลดน้ำหนัก” แทนการใช้คำว่า “คลินิก” ในบริบทนี้"},
         {t:"คุมหิว", fix:"ควรใช้คำว่า “ลดความอยากอาหาร” แทน"},
         {t:"ราคาเริ่มต้น", fix:"ต้องระบุเงื่อนไข ระยะเวลา และราคาสุทธิรวมค่าแพทย์ให้ครบถ้วน"},
+        {t:"ราคาเดิม", fix:"ห้ามตั้งราคาเดิมสูงเกินจริงเพื่อให้ราคาลดดูน่าดึงดูดกว่าความเป็นจริง (ราคาลวง) ต้องเป็นราคาที่เคยขายจริงเท่านั้น"},
         {t:"ก่อน-หลัง", fix:"ต้องเป็นภาพจริงของผู้ป่วยเฉพาะราย ได้รับความยินยอมเป็นลายลักษณ์อักษร ไม่ตกแต่งภาพ และมีข้อความ “เป็นตัวอย่างผลจากการเข้ารับการรักษาพยาบาลสำหรับผู้ป่วยเฉพาะราย” พร้อมระบุระยะเวลา"},
         {t:"Before-After", fix:"ต้องเป็นภาพจริงของผู้ป่วยเฉพาะราย ได้รับความยินยอมเป็นลายลักษณ์อักษร ไม่ตกแต่งภาพ และมีข้อความ “เป็นตัวอย่างผลจากการเข้ารับการรักษาพยาบาลสำหรับผู้ป่วยเฉพาะราย” พร้อมระบุระยะเวลา"},
         {t:"แคมเปญ", fix:"ต้องระบุจำนวนสิทธิ์คงเหลือ วันหมดเขต และราคาสุทธิรวมค่าแพทย์ครบถ้วน (มีอายุใช้ได้ไม่เกิน 1 ปี)"},
@@ -453,6 +489,19 @@
         {t:"botulinum toxin", requires:["โปรแกรม","program"], fix:"ไม่พบคำว่า “โปรแกรม/Program” นำหน้า — ต้องใช้ “โปรแกรม Botulinum Toxin”"},
         {t:"Sylfirm", requires:["โปรแกรม","program"], fix:"ไม่พบคำว่า “โปรแกรม/Program” นำหน้า — ต้องใช้ “โปรแกรม SYLFIRM” เท่านั้น ห้ามต่อท้ายรุ่น/เวอร์ชันที่ยังไม่ได้รับอนุญาต"},
         {t:"Cool Glide", requires:["โปรแกรม","program"], fix:"ไม่พบคำว่า “โปรแกรม/Program” นำหน้า — ต้องใช้ “โปรแกรม Cool Glide” กำกับเสมอ"}
+      ]
+    },
+    {
+      id:"originClaim",
+      label:"อ้างประเทศ/แหล่งผลิตหรือแหล่งนำเข้าของสารฉีด (ฟิลเลอร์, Botox)",
+      sev:"medium",
+      reason:"ฟิลเลอร์และโบทูลินัมท็อกซิน (Botox) เป็นยาควบคุมพิเศษ การระบุว่า “แท้จาก/นำเข้าจาก” ประเทศใดประเทศหนึ่งในโฆษณา เป็นการสื่อถึงยี่ห้อ/แหล่งผลิตโดยปริยาย เข้าข่ายคำต้องห้ามเรื่องการเปิดเผยชื่อยี่ห้อสารฉีดตามประกาศแพทยสภาที่ 50/2549 และประกาศกระทรวงสาธารณสุข ฉบับที่ 11 อีกทั้งผู้บริโภคไม่สามารถตรวจสอบแหล่งที่มาได้จริงจากข้อความโฆษณาเพียงอย่างเดียว ที่ผ่านมา อย. ตรวจพบและดำเนินคดีเครือข่ายจำหน่ายฟิลเลอร์/โบท็อกซ์ที่ไม่ได้ขึ้นทะเบียนถูกต้องส่งขายคลินิกทั่วประเทศอยู่เสมอ (ดูข่าวการตรวจจับในแหล่งอ้างอิง)",
+      fix:"ตัดข้อความระบุประเทศ/แหล่งผลิตหรือแหล่งนำเข้าออกจากโฆษณา ระบุเพียงว่าเป็นผลิตภัณฑ์ที่ได้รับอนุญาตขึ้นทะเบียนจาก อย. อย่างถูกต้อง และแนะนำให้ผู้บริโภคตรวจสอบทะเบียนผลิตภัณฑ์กับ อย. โดยตรง (เช่นผ่าน QR code) ก่อนเข้ารับบริการ แทนการอ้างแหล่งผลิต/แหล่งนำเข้าในโฆษณา",
+      regex:[
+        "(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox|botulinum\\s*toxin)[^\\n]{0,15}(นำเข้าจาก|ของแท้จาก|แท้จาก|100\\s*%\\s*จาก|จากประเทศ)[^\\n]{0,10}(เกาหลี|จีน|อเมริกา|สหรัฐ|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)",
+        "(นำเข้าจาก|ของแท้จาก|แท้จาก|100\\s*%\\s*จาก|จากประเทศ)[^\\n]{0,10}(เกาหลี|จีน|อเมริกา|สหรัฐ|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)[^\\n]{0,15}(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox|botulinum\\s*toxin)",
+        "(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox)\\s{0,2}(เกาหลี|จีน|อเมริกา|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)",
+        "(เกาหลี|จีน|อเมริกา|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)\\s{0,2}(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox)"
       ]
     }
   ];
@@ -685,47 +734,29 @@
   runCheck();
 
   // ---------------------------------------------------------------------
-  // AI image/video check — uses the published artifact's `sample`
-  // capability (declared via capabilities:{sample:{}}). Design for absence:
-  // the panel stays hidden unless window.claude.use("sample") resolves and
-  // this view can send images.
+  // Image/video check via in-browser OCR (Tesseract.js loaded from a CDN
+  // on first use) — works for anyone, no Claude account or login needed.
+  // Extracted text is normalized and run through the same findMatches()
+  // engine used for the text checker above. Only works when the script
+  // can actually load (the downloaded .html file opened directly; a
+  // published-artifact link may block the external script for security,
+  // in which case a clear error explains the limitation).
   // ---------------------------------------------------------------------
 
-  function aiErrorMessage(e){
-    var code = e && e.code;
-    var map = {
-      not_granted: "บัญชีนี้ยังไม่อนุญาตให้หน้านี้ใช้ AI ของ Claude",
-      images_unavailable: "มุมมองนี้ไม่รองรับการส่งรูปภาพให้ AI ตรวจ",
-      image_rejected: "ไฟล์ภาพไม่รองรับหรือมีขนาดใหญ่เกินไป กรุณาลองไฟล์อื่น",
-      rate_limited: "มีการใช้งานถี่เกินไป กรุณาลองใหม่อีกสักครู่",
-      session_expired: "กรุณาเข้าสู่ระบบ Claude ใหม่แล้วลองอีกครั้ง",
-      refused: "AI ปฏิเสธที่จะวิเคราะห์ภาพนี้ ลองเปลี่ยนภาพแล้วลองใหม่",
-      empty_completion: "AI ไม่ได้ตอบกลับข้อมูล กรุณาลองใหม่",
-      invalid_json: "AI ตอบกลับไม่อยู่ในรูปแบบที่ตรวจสอบได้ กรุณาลองใหม่อีกครั้ง",
-      cancelled: "ยกเลิกการตรวจสอบแล้ว",
-      prompt_too_large: "ข้อมูลที่ส่งมีขนาดใหญ่เกินไป",
-      sampling_disabled: "ฟีเจอร์ AI ยังไม่เปิดใช้งานสำหรับบัญชีนี้"
-    };
-    return (code && map[code]) || "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง";
-  }
-
-  function renderAiResults(items){
-    var el = document.getElementById("aiResults");
-    if(!items || items.length===0){ el.innerHTML=""; return; }
-    var list = items.slice().sort(function(a,b){ return sevRank(a.severity)-sevRank(b.severity); });
-    el.innerHTML = list.map(function(it){
-      var sev = ["high","medium","low"].indexOf(it.severity)>=0 ? it.severity : "medium";
-      return '' +
-        '<div class="result-card">' +
-          '<div class="row1">' +
-            '<span class="sev-dot '+sev+'"></span>' +
-            '<span class="term">“'+escapeHtml(String(it.quote||""))+'”</span>' +
-            '<span class="cat">· '+escapeHtml(String(it.category||""))+'</span>' +
-          '</div>' +
-          '<p>'+escapeHtml(String(it.reason||""))+'</p>' +
-          '<div class="fix">'+escapeHtml(String(it.fix||""))+'</div>' +
-        '</div>';
-    }).join("");
+  function loadTesseractScript(){
+    if(window.Tesseract) return Promise.resolve();
+    if(window.__tesseractLoadPromise) return window.__tesseractLoadPromise;
+    window.__tesseractLoadPromise = new Promise(function(resolve, reject){
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";
+      s.onload = function(){ resolve(); };
+      s.onerror = function(){ window.__tesseractLoadPromise = null; reject(new Error("script_load_failed")); };
+      document.head.appendChild(s);
+      setTimeout(function(){
+        if(!window.Tesseract){ window.__tesseractLoadPromise = null; reject(new Error("timeout")); }
+      }, 20000);
+    });
+    return window.__tesseractLoadPromise;
   }
 
   function extractVideoFrames(file, maxCount){
@@ -734,12 +765,42 @@
       video.muted = true;
       video.playsInline = true;
       video.preload = "auto";
+      // Some browsers/engines only decode <video> reliably when it's attached
+      // to the DOM. Keep it effectively invisible but present.
+      video.style.position = "fixed";
+      video.style.top = "-9999px";
+      video.style.left = "-9999px";
+      video.style.width = "2px";
+      video.style.height = "2px";
+      document.body.appendChild(video);
+
       var url = URL.createObjectURL(file);
+      var settled = false;
+      var timeoutId = setTimeout(function(){
+        if(settled) return;
+        settled = true;
+        cleanup();
+        var err = new Error("timeout"); err.code = "timeout";
+        reject(err);
+      }, 15000);
+
+      function cleanup(){
+        clearTimeout(timeoutId);
+        URL.revokeObjectURL(url);
+        if(video.parentNode) video.parentNode.removeChild(video);
+      }
+
       video.src = url;
 
       video.addEventListener("loadedmetadata", function(){
+        if(settled) return;
         var duration = video.duration || 0;
-        if(!isFinite(duration) || duration<=0){ URL.revokeObjectURL(url); reject(new Error("no duration")); return; }
+        if(!isFinite(duration) || duration<=0){
+          settled = true; cleanup();
+          var err = new Error("no duration"); err.code = "no_duration";
+          reject(err);
+          return;
+        }
         var n = Math.max(1, Math.min(maxCount, 5));
         var fractions = [];
         for(var i=0;i<n;i++){ fractions.push((i+1)/(n+1)); }
@@ -747,14 +808,16 @@
         var canvas = document.createElement("canvas");
 
         function seekNext(){
+          if(settled) return;
           if(frames.length>=fractions.length){
-            URL.revokeObjectURL(url);
+            settled = true; cleanup();
             resolve(frames);
             return;
           }
           video.currentTime = Math.min(duration*fractions[frames.length], Math.max(0, duration-0.05));
         }
         video.addEventListener("seeked", function(){
+          if(settled) return;
           canvas.width = video.videoWidth || 640;
           canvas.height = video.videoHeight || 360;
           var ctx = canvas.getContext("2d");
@@ -766,30 +829,25 @@
         });
         seekNext();
       });
-      video.addEventListener("error", function(){ URL.revokeObjectURL(url); reject(new Error("video load error")); });
+      video.addEventListener("error", function(){
+        if(settled) return;
+        settled = true;
+        var mediaCode = video.error && video.error.code;
+        cleanup();
+        var err = new Error("video load error"); err.code = "media_error"; err.mediaErrorCode = mediaCode;
+        reject(err);
+      });
     });
   }
 
-  async function initAiCheck(){
-    var panel = document.getElementById("aiPanel");
-    var fallback = document.getElementById("aiFallback");
-    if(!window.claude || typeof window.claude.use !== "function"){ return; }
-    var sample;
-    try{ sample = await window.claude.use("sample"); }catch(e){ sample = null; }
-    if(!sample){ return; }
-    var limits;
-    try{ limits = await sample.limits(); }catch(e){ limits = null; }
-    if(!limits || !limits.images){ return; }
-    fallback.hidden = true;
-    panel.hidden = false;
-
-    var fileInput = document.getElementById("aiFile");
-    var preview = document.getElementById("aiPreview");
-    var btnCheck = document.getElementById("btnAiCheck");
-    var btnClear = document.getElementById("btnAiClear");
-    var statusEl = document.getElementById("aiStatus");
-    var resultsEl = document.getElementById("aiResults");
-    try{ fileInput.accept = limits.images.mediaTypes.join(",") + ",video/*"; }catch(e){}
+  function initOcrCheck(){
+    var fileInput = document.getElementById("ocrFile");
+    var preview = document.getElementById("ocrPreview");
+    var btnCheck = document.getElementById("btnOcrCheck");
+    var btnClear = document.getElementById("btnOcrClear");
+    var statusEl = document.getElementById("ocrStatus");
+    var textPreviewEl = document.getElementById("ocrTextPreview");
+    var resultsEl = document.getElementById("ocrResults");
 
     var currentBlobs = [];
     var currentUrls = [];
@@ -812,21 +870,32 @@
     fileInput.addEventListener("change", async function(){
       clearPreview();
       resultsEl.innerHTML = "";
+      textPreviewEl.hidden = true;
+      statusEl.hidden = true;
       var file = fileInput.files && fileInput.files[0];
       if(!file) return;
-      if(file.type.indexOf("video/")===0){
+      var looksLikeVideo = file.type.indexOf("video/")===0 ||
+        (!file.type && /\.(mp4|mov|webm|mkv|avi|m4v|3gp|3gpp)$/i.test(file.name||""));
+      if(looksLikeVideo){
         statusEl.hidden = false;
         statusEl.className = "ai-status";
         statusEl.textContent = "กำลังดึงเฟรมจากวิดีโอ...";
         try{
-          var maxCount = limits.images.maxCount || 4;
-          var frames = await extractVideoFrames(file, maxCount);
+          var frames = await extractVideoFrames(file, 4);
           frames.forEach(function(f){ currentBlobs.push(f); addPreview(f); });
           statusEl.textContent = "ดึงได้ " + frames.length + " เฟรมจากวิดีโอ (ตรวจแบบสุ่มตัวอย่าง ไม่ใช่ทั้งคลิป)";
           btnCheck.disabled = frames.length===0;
         }catch(e){
           statusEl.className = "ai-status err";
-          statusEl.textContent = "ดึงเฟรมจากวิดีโอไม่สำเร็จ ลองใช้ไฟล์ภาพนิ่งแทน";
+          if(e && e.code === "media_error"){
+            statusEl.textContent = "เบราว์เซอร์เปิดไฟล์วิดีโอนี้ไม่ได้ (รูปแบบ/ตัวเรียงรหัสไม่รองรับ) — ที่พบบ่อยคือไฟล์ .mov จากไอโฟนที่บันทึกด้วย HEVC ลองแปลงเป็น .mp4 (H.264) ก่อน หรือแคปหน้าจอจากคลิปมาเป็นภาพนิ่งแทน";
+          } else if(e && e.code === "timeout"){
+            statusEl.textContent = "โหลดวิดีโอนานเกินไปจนหมดเวลา (ไฟล์อาจใหญ่หรือมีปัญหา) ลองไฟล์ที่เล็กลง หรือใช้ภาพนิ่งแทน";
+          } else if(e && e.code === "no_duration"){
+            statusEl.textContent = "อ่านความยาวของวิดีโอไม่ได้ ไฟล์นี้อาจเสียหายหรืออยู่ในรูปแบบที่ไม่รองรับ ลองไฟล์อื่นหรือใช้ภาพนิ่งแทน";
+          } else {
+            statusEl.textContent = "ดึงเฟรมจากวิดีโอไม่สำเร็จ ลองใช้ไฟล์ภาพนิ่งแทน";
+          }
         }
       } else {
         statusEl.hidden = true;
@@ -840,46 +909,79 @@
       fileInput.value = "";
       clearPreview();
       resultsEl.innerHTML = "";
+      textPreviewEl.hidden = true;
       statusEl.hidden = true;
     });
-
-    var RULES_SUMMARY = RULES.map(function(r){
-      var sample3 = (r.terms||[]).slice(0,6).map(function(e){ return typeof e==="string" ? e : e.t; });
-      return "- " + r.label + " (" + SEV_LABEL[r.sev] + "): เช่น " + sample3.join(", ");
-    }).join("\n");
 
     btnCheck.addEventListener("click", async function(){
       if(currentBlobs.length===0) return;
       btnCheck.disabled = true;
       statusEl.hidden = false;
       statusEl.className = "ai-status";
-      statusEl.textContent = "กำลังวิเคราะห์ด้วย AI... (อาจใช้เวลาสักครู่)";
+      statusEl.textContent = "กำลังโหลดไลบรารีอ่านข้อความ...";
       resultsEl.innerHTML = "";
-
-      var prompt = "คุณคือผู้ช่วยตรวจสอบข้อความโฆษณาสถานพยาบาล/คลินิกในประเทศไทย ตามแนวทางของกรมสนับสนุนบริการสุขภาพ (สบส.)\n" +
-        "ภาพที่แนบมาคือภาพโฆษณาคลินิก หรือเฟรมที่สุ่มมาจากคลิปวิดีโอโฆษณา\n" +
-        "อ่านข้อความทั้งหมดที่ปรากฏในภาพ (ไทย/อังกฤษ) และพิจารณาคำกล่าวอ้างต่าง ๆ เทียบกับหมวดคำต้องห้าม/คำต้องระวังต่อไปนี้:\n" +
-        RULES_SUMMARY + "\n\n" +
-        "ตอบกลับเป็น JSON array เท่านั้น ไม่ต้องมีข้อความอื่นนอกเหนือจาก JSON แต่ละรายการเป็น object: " +
-        "{\"quote\": ข้อความ/คำกล่าวอ้างที่พบในภาพ, \"category\": ชื่อหมวดภาษาไทย, \"severity\": \"high\"|\"medium\"|\"low\", \"reason\": เหตุผลสั้น ๆ ภาษาไทย, \"fix\": คำแนะนำแก้ไขภาษาไทย}\n" +
-        "ถ้าไม่พบข้อความหรือคำกล่าวอ้างที่มีปัญหาเลย ให้ตอบ [] (array ว่าง)";
+      textPreviewEl.hidden = true;
 
       try{
-        var items = await sample.json(prompt, { images: currentBlobs, modelTier: "default", cache: false });
-        if(!Array.isArray(items)) items = [];
-        renderAiResults(items);
-        statusEl.className = "ai-status";
-        statusEl.textContent = items.length ? ("พบ " + items.length + " จุดที่ควรตรวจสอบ") : "AI ไม่พบคำหรือคำกล่าวอ้างที่มีปัญหาในภาพนี้ (โปรดตรวจสอบเลขอนุมัติ ฆสพ.สบส. และเงื่อนไขอื่นด้วยตนเองด้วย)";
+        await loadTesseractScript();
       }catch(e){
         statusEl.className = "ai-status err";
-        statusEl.textContent = aiErrorMessage(e);
-        if(e && e.code === "not_granted"){ panel.hidden = true; }
-      } finally {
-        btnCheck.disabled = currentBlobs.length===0;
+        statusEl.textContent = "โหลดไลบรารีอ่านข้อความไม่สำเร็จ — ฟีเจอร์นี้ใช้ได้เต็มรูปแบบเฉพาะไฟล์ .html ที่ดาวน์โหลดมาเปิดเอง (ลิงก์เว็บเวอร์ชันเผยแพร่อาจบล็อกการโหลดสคริปต์จากภายนอก) กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่ หรือดาวน์โหลดไฟล์มาเปิดโดยตรงแล้วลองอีกครั้ง";
+        btnCheck.disabled = false;
+        return;
       }
+
+      var combinedText = "";
+      try{
+        for(var i=0;i<currentBlobs.length;i++){
+          statusEl.textContent = "กำลังอ่านข้อความ... (" + (i+1) + "/" + currentBlobs.length + ")";
+          var result = await window.Tesseract.recognize(currentBlobs[i], "tha+eng");
+          combinedText += ((result && result.data && result.data.text) ? result.data.text : "") + "\n";
+        }
+      }catch(e){
+        statusEl.className = "ai-status err";
+        statusEl.textContent = "อ่านข้อความไม่สำเร็จ กรุณาลองใหม่อีกครั้งหรือลองไฟล์อื่น";
+        btnCheck.disabled = false;
+        return;
+      }
+
+      var normalized = normalizeText(combinedText);
+      var matches = findMatches(normalized);
+      var groups = groupMatches(matches);
+
+      if(normalized.trim().length>0){
+        textPreviewEl.hidden = false;
+        textPreviewEl.innerHTML = '<p class="ai-note" style="margin-top:0;">ข้อความที่อ่านได้จากภาพ/เฟรมวิดีโอ:</p>' + renderHighlighted(normalized, matches);
+      } else {
+        textPreviewEl.hidden = true;
+      }
+
+      resultsEl.innerHTML = groups.length ? groups.map(function(g){
+        return '' +
+          '<div class="result-card">' +
+            '<div class="row1">' +
+              '<span class="sev-dot '+g.rule.sev+'"></span>' +
+              '<span class="term">“'+escapeHtml(g.text)+'”</span>' +
+              '<span class="cat">· '+escapeHtml(g.rule.label)+'</span>' +
+              (g.count>1 ? '<span class="count">พบ '+g.count+' ครั้ง</span>' : '') +
+            '</div>' +
+            '<p>'+escapeHtml(g.rule.reason)+'</p>' +
+            '<div class="fix">'+escapeHtml(g.fix)+'</div>' +
+          '</div>';
+      }).join("") : "";
+
+      statusEl.className = "ai-status";
+      if(normalized.trim().length===0){
+        statusEl.textContent = "อ่านข้อความจากภาพไม่ได้เลย (อาจเป็นภาพที่ไม่มีตัวอักษร หรือตัวอักษรเล็ก/พื้นหลังซับซ้อนเกินไป) ลองภาพที่ชัดเจนกว่านี้";
+      } else if(groups.length===0){
+        statusEl.textContent = "✅ ไม่พบคำต้องห้าม/คำต้องระวังในข้อความที่อ่านได้ — แต่โปรดตรวจสอบด้วยตาอีกครั้งเสมอ เพราะ OCR อาจอ่านตัวอักษรพลาดหรือข้ามบางส่วนไปได้";
+      } else {
+        statusEl.textContent = "พบ " + groups.length + " จุดที่ควรตรวจสอบจากข้อความที่อ่านได้";
+      }
+      btnCheck.disabled = false;
     });
   }
 
-  initAiCheck();
+  initOcrCheck();
 })();
 </script>
