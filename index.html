@@ -232,6 +232,16 @@
   .sources a{color:var(--brand-ink);text-decoration:underline;text-underline-offset:2px;}
   .sources a:hover{color:var(--brand);}
 
+  .sources h2 .src-total{font-size:12px;font-weight:600;color:var(--text-muted);margin-left:6px;}
+  .sources .src-note{font-size:12px;color:var(--text-muted);margin:0 0 10px;line-height:1.65;}
+  .sources .src-filter{width:100%;box-sizing:border-box;font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);margin:0 0 10px;}
+  .sources .src-group{padding:8px 12px;}
+  .sources .src-group summary{font-size:13px;line-height:1.45;}
+  .sources .src-count{margin-left:auto;flex:none;font-weight:600;font-size:11.5px;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:1px 9px;}
+  .sources .new-tag{display:inline-block;font-size:10.5px;font-weight:700;line-height:1.5;color:var(--brand-ink);background:var(--brand-bg);border-radius:999px;padding:0 7px;margin-right:6px;vertical-align:1px;text-decoration:none;}
+  .sources .src-empty{font-size:12.5px;color:var(--text-muted);margin:6px 2px 0;}
+  .sources li[hidden]{display:none;}
+
   footer{margin-top:26px;font-size:12px;color:var(--text-muted);line-height:1.7;border-top:1px solid var(--border);padding-top:16px;}
   footer #lastUpdated{margin:0 0 6px;font-weight:600;color:var(--text);}
 </style>
@@ -289,11 +299,16 @@
         <h2>ข้อกำหนดทางกฎหมายที่เกี่ยวข้อง</h2>
         <div class="law-block">
           <p><b>หลักการ:</b> สถานพยาบาลต้องขออนุมัติโฆษณาจาก สบส. <u>ก่อน</u>เผยแพร่ทุกช่องทาง (ป้าย, เว็บไซต์, โซเชียลมีเดีย) และต้องแสดงเลขที่อนุมัติ “ฆสพ.สบส. ..../....” กำกับไว้ในสื่อโฆษณาทุกชิ้น</p>
-          <p class="cite">ตาม พ.ร.บ.สถานพยาบาล พ.ศ. 2541 มาตรา 38, ประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546 (18 ข้อห้ามเชิงเนื้อหา), ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์ วิธีการ เงื่อนไข และค่าใช้จ่ายในการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล พ.ศ. 2562, แนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569 และประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา</p>
+          <p class="cite">ตาม พ.ร.บ.สถานพยาบาล พ.ศ. 2541 มาตรา 38, ประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546 (18 ข้อห้ามเชิงเนื้อหา), ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์ วิธีการ เงื่อนไข และค่าใช้จ่ายในการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล พ.ศ. 2562, แนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569 ประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา, ประกาศแพทยสภา ที่ 62/2567 (บทลงโทษทางจริยธรรม), ประกาศแพทยสภา ที่ 17/2569 (ชื่อจริง-เลขใบอนุญาตแพทย์ในโฆษณาเสริมความงาม) และข้อบังคับแพทยสภาว่าด้วยการรักษาจริยธรรมแห่งวิชาชีพเวชกรรม พ.ศ. 2549</p>
+        </div>
+        <div class="law-block" style="margin-top:10px;">
+          <p><b>กฎใหม่มีผล 3 ก.ค. 2569 (ประกาศแพทยสภา ที่ 17/2569):</b> โฆษณาเสริมความงามต้องแสดง <u>ชื่อ-นามสกุลจริง + เลขใบอนุญาตประกอบวิชาชีพเวชกรรม</u> ของแพทย์ให้ชัดเจน หากใช้ชื่อเล่นต้องวางในตำแหน่งเดียวกับชื่อจริง และใช้รูปแบบตัวอักษร สี และขนาดเดียวกัน</p>
         </div>
         <div class="penalty">
           <b>บทลงโทษ (มาตรา 68):</b> โฆษณาโดยไม่ได้รับอนุมัติ — ปรับไม่เกิน 20,000 บาท ต่อหนึ่งช่องทาง · เนื้อหาโฆษณาเป็นเท็จ/เกินจริง — จำคุกไม่เกิน 1 ปี หรือปรับไม่เกิน 20,000 บาท หรือทั้งจำทั้งปรับ ต่อหนึ่งช่องทาง และอาจถูกปรับเพิ่มเป็นรายวันตลอดเวลาที่ยังฝ่าฝืน<br>
-          <b>ทางจรรยาบรรณแพทย์:</b> ตามประกาศแพทยสภาที่มีผลบังคับ ก.พ. 2568 แพทย์ที่โฆษณาชวนเชื่อ/ให้ผู้อื่นใช้ชื่อเปิดคลินิก (“หมอแขวนป้าย”) มีโทษ <b>พักใช้ใบอนุญาตประกอบวิชาชีพ 1 ปีทันที</b> แม้ทำผิดเป็นครั้งแรก
+          <b>ทางจรรยาบรรณแพทย์ (ประกาศแพทยสภา ที่ 62/2567 มีผล ก.พ. 2568):</b> โฆษณาเท็จ/เกินจริง/ลามกอนาจาร หรือโฆษณาเพื่อประโยชน์ตน — <b>พักใช้ใบอนุญาต 6 เดือนตั้งแต่ครั้งแรก</b> · ครั้งที่ 2 พักใช้ 2 ปี · ครั้งที่ 3 ขึ้นไปเพิกถอน · แพทย์ที่ให้ผู้อื่นใช้ชื่อเปิดคลินิก (“หมอแขวนป้าย”) พักใช้ 1 ปี (ตามรายงาน ฐานเศรษฐกิจ ต.ค. 2567 — โปรดตรวจฉบับราชกิจจานุเบกษา)<br>
+          <b>ทางอาญา:</b> ศาลเคยพิพากษาให้การโฆษณาแพทย์เกินจริงเป็นความผิดฉ้อโกง/พ.ร.บ.คอมพิวเตอร์ และอาจเอาผิดเจ้าของคลินิกและเอเจนซีที่ร่วมกระทำ (Bangkokbiznews ม.ค. 2568)<br>
+          <b>การนับโทษ:</b> สบส. แจ้งว่านับความผิดตาม “ช่องทาง” ไม่ใช่จำนวนโพสต์ — ปรับครั้งแรก 25% / ครั้งที่สอง 50% ของโทษสูงสุด และครั้งที่สามอาจถูกส่งฟ้องทันที (ข่าวสด 7 เม.ย. 2569)
         </div>
         <p class="cite" style="margin-top:8px;">หมายเหตุ: ประกาศแพทยสภา 50/2549 ยังระบุคำต้องห้ามเพิ่มเติมที่เป็นคำไทยทั่วไป เช่น “เพียง”, “เท่านั้น”, “พิเศษ”, “เฉพาะ” — ระบบนี้ไม่ได้ตั้งให้จับคำเหล่านี้อัตโนมัติเพราะพบได้ในประโยคทั่วไปแทบทุกประโยค (จะแจ้งเตือนถี่เกินไป) แต่ควรตระหนักและเลี่ยงเมื่อใช้ในเชิงอวดอ้างสรรพคุณ/ราคา</p>
       </section>
@@ -311,11 +326,20 @@
           <li>คำรีวิว/รูปผู้ใช้บริการ ได้รับความยินยอมเป็นลายลักษณ์อักษรก่อนนำมาเผยแพร่</li>
           <li>ห้ามระบุชื่อแบรนด์/ยี่ห้อทางการค้าของสารฉีด (เช่น ชื่อการค้าของโบทูลินัมท็อกซิน) ในโฆษณา</li>
           <li>ห้ามถ่ายทอดสด/ไลฟ์สดขณะทำหัตถการ และห้ามแสดงภาพแพทย์คู่กับยา/เวชภัณฑ์ในเชิงขาย</li>
-          <li>ระบุชื่อ-นามสกุลจริงของแพทย์พร้อมเลขใบอนุญาตเสมอ ห้ามใช้ชื่อเล่นเพียงอย่างเดียว</li>
+          <li>ระบุชื่อ-นามสกุลจริงของแพทย์พร้อมเลขใบอนุญาตประกอบวิชาชีพเวชกรรมเสมอ (ประกาศแพทยสภา 17/2569 มีผล 3 ก.ค. 2569) — ใช้ชื่อเล่นได้เฉพาะเมื่อวางคู่กับชื่อจริงในตำแหน่งเดียวกัน ตัวอักษรรูปแบบ สี และขนาดเดียวกัน</li>
           <li>ห้ามอ้างว่ารักษาโรคใดได้ เว้นแต่มีหลักฐานทางวิชาการรองรับอย่างน้อย 80% ตามเกณฑ์แพทยสภา</li>
           <li>ห้ามโฆษณาบริการฟรี/ของรางวัล/ชิงโชคที่ผูกกับบริการทางการแพทย์ เว้นแต่เพื่อการกุศลหรือราคาที่ตกลงล่วงหน้ากับกลุ่มลูกค้า</li>
           <li>ห้ามใช้ภาพที่ทำให้ตกใจกลัว ลามกอนาจาร หรือภาพผู้ป่วยในลักษณะน่าสมเพช และห้ามหมิ่นประมาทสถานพยาบาลอื่น</li>
           <li>ห้ามระบุ/อ้างประเทศแหล่งผลิตหรือแหล่งนำเข้าของฟิลเลอร์และโบทูลินัมท็อกซิน (เช่น “แท้จากเกาหลี”, “นำเข้าจากอเมริกา”) เพราะเข้าข่ายเปิดเผยยี่ห้อโดยปริยายและผู้บริโภคตรวจสอบไม่ได้จากโฆษณา — ให้แนะนำผู้บริโภคตรวจสอบทะเบียนกับ อย. โดยตรงแทน</li>
+          <li>ห้ามอวดอ้างความเชี่ยวชาญเฉพาะสาขาที่แพทยสภาไม่รับรอง เช่น PRP, Stem Cell, Anti-Aging — โฆษณาคุณวุฒิได้เฉพาะ พ.บ. วุฒิบัตร หนังสืออนุมัติ และประกาศนียบัตรที่แพทยสภารับรอง</li>
+          <li>ห้ามอ้างจำนวนเคส/ผู้ป่วยที่เคยทำ (เช่น “ทำมา 100 ราย”) และหลีกเลี่ยงการแสดงความเห็นส่วนตัวของแพทย์ในสื่อโฆษณา (ประธานอนุกรรมการโฆษณาแพทยสภา, 6 ส.ค. 2569)</li>
+          <li>อย่าใช้ชื่อ รูป ตำแหน่ง หรือชุดกาวน์ของแพทย์ในทางที่สื่อว่าแพทย์รับรอง/แนะนำผลิตภัณฑ์เพื่อขาย (เลขาธิการแพทยสภา, 28 ก.ค. 2569)</li>
+          <li>เครื่องมือแพทย์ที่นำมาโฆษณา (เช่น เลเซอร์ อัลตราซาวด์ IPL RF) ต้องขออนุญาตโฆษณากับ อย. ด้วย — การมีเลขทะเบียน/เลขสารบบ ไม่ได้แปลว่าได้รับอนุญาตโฆษณาแล้ว</li>
+          <li>ห้ามใช้ข้อความสงวนสิทธิ์ที่เปิดช่องให้เปลี่ยนราคา/เงื่อนไขโดยไม่แจ้งล่วงหน้า และห้ามเสนอส่วนลด/ผลประโยชน์ตอบแทนนอกกรณีที่ระเบียบแพทยสภากำหนด (ผู้ด้อยโอกาส, แผนงานรัฐ, สมาชิกกลุ่มเฉพาะ, เว็บไซต์ของสถานพยาบาลเอง — และต้องกำหนดระยะเวลาไม่เกิน 1 ปี)</li>
+          <li>ปากกาลดน้ำหนัก (กลุ่ม GLP-1) เป็นยาควบคุมพิเศษที่ต้องมีใบสั่งแพทย์ (มีผล 15 ก.ย. 2569 ตามข่าว ฐานเศรษฐกิจ) — ห้ามโฆษณาชักชวนประชาชนทั่วไปให้ซื้อใช้ยากลุ่มนี้ และตรวจประกาศ อย. ฉบับเต็มก่อนเผยแพร่</li>
+          <li>ราคาที่โฆษณาต้องเป็นราคาที่เก็บจริง (สคบ. สั่งตรวจกรณีโฆษณาดูดไขมัน “ร่อง 11” ส.ค. 2569) และคลินิกต้องทำสัญญาให้ลูกค้าทุกกรณี (สคบ. มิ.ย. 2569)</li>
+          <li>คลินิกที่ใช้สื่อผ่าน Facebook/TikTok ถูกเฝ้าระวังโดย สบส. ร่วมกับแพลตฟอร์ม — ปีงบ 2569 ตรวจ 4,521 โพสต์ พบต้องสงสัยผิดกฎหมาย 2,433 โพสต์ เกี่ยวข้อง 89 คลินิก (สบส. 23 เม.ย. 2569)</li>
+          <li>โฆษณาเครื่องสำอางห้ามสื่อว่าฉีดหรือใช้ภายในร่างกาย ห้ามอ้างผิวขาวเกินสีผิวธรรมชาติ และห้ามอ้างรักษาสิว/อ้าง UV 100% (ตามข่าวกฎหมายคุมโฆษณาเครื่องสำอาง ฐานเศรษฐกิจ ก.ย. 2567 — โปรดตรวจประกาศ/กฎกระทรวงฉบับจริง)</li>
         </ul>
       </section>
 
@@ -330,36 +354,283 @@
       </section>
 
       <section class="panel sources">
-        <h2>แหล่งอ้างอิงข้อมูล</h2>
-        <ul>
-          <li><a href="https://www.hss.moph.go.th/show_topic.php?id=3163" target="_blank" rel="noopener noreferrer">ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์การโฆษณาสถานพยาบาล — hss.moph.go.th (ทางการ)</a></li>
-          <li><a href="https://www.hfocus.org/sites/default/files/files_upload/aenwthangkhxkhwamokhsna-prabaek-xapedth-11-2-69-1.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความโฆษณาสถานพยาบาล ฉบับปรับแก้ 11 ก.พ. 2569 (PDF)</a></li>
-          <li><a href="https://www.hfocus.org/content/2026/04/37673" target="_blank" rel="noopener noreferrer">อัปเดตคำต้องห้ามโฆษณาสถานพยาบาลฉบับล่าสุด — Hfocus</a></li>
-          <li><a href="https://mrd.hss.moph.go.th/mrd1_hss/?p=7446" target="_blank" rel="noopener noreferrer">กองสถานพยาบาลและการประกอบโรคศิลปะ — ข้อกฎหมายการโฆษณาสถานพยาบาล</a></li>
-          <li><a href="https://www.kanpho.go.th/consumer/images/Form-Drugstore/example-word-advertise.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความการโฆษณาสถานพยาบาล (PDF) — สสจ.ขอนแก่น</a></li>
-          <li><a href="https://fdasamutsongkhram.org/clinic-advertising/" target="_blank" rel="noopener noreferrer">การโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล — สสจ.สมุทรสงคราม</a></li>
-          <li><a href="https://www.tmc.or.th/download/50_49.pdf" target="_blank" rel="noopener noreferrer">ประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา (PDF ทางการ — tmc.or.th)</a></li>
-          <li><a href="https://www.bangkokbiznews.com/social/688936" target="_blank" rel="noopener noreferrer">สธ. กาง 18 ข้อห้ามโฆษณาคลินิก - 15 คำห้ามแพทย์จ้อ — Bangkokbiznews</a></li>
-          <li><a href="https://www.komchadluek.net/news/edu-health/223391" target="_blank" rel="noopener noreferrer">15 คำห้ามแพทย์โม้โฆษณา — คมชัดลึก</a></li>
-          <li><a href="https://www.hfocus.org/content/2025/01/32869" target="_blank" rel="noopener noreferrer">แพทยสภาออกประกาศใหม่ เพิ่มโทษพักใช้ใบอนุญาตแพทย์โฆษณาชวนเชื่อ — Hfocus</a></li>
-          <li><a href="https://dgh.agency/beauty-clinic-advertising-qa-2025/" target="_blank" rel="noopener noreferrer">รวม 18 คำถาม-คำตอบ กฎการโฆษณาคลินิกความงามฉบับใหม่ (มี.ค. 2568) — dgh.agency</a></li>
-          <li><a href="https://cemc.fda.moph.go.th/press-release/296" target="_blank" rel="noopener noreferrer">ตำรวจ CIB ร่วม อย. ทลายแหล่งซุกโบท็อก-ฟิลเลอร์เถื่อน ส่งขายคลินิกทั่วประเทศ — ข่าวแจ้ง อย. (ทางการ)</a></li>
-          <li><a href="https://www.bangkokbiznews.com/health/public-health/1159692" target="_blank" rel="noopener noreferrer">เช็กชัดๆ “ฟิลเลอร์” ยี่ห้อไหนผ่านอย. ย้ำโฆษณาไม่ตรงรับอนุญาต ระงับทันที — Bangkokbiznews</a></li>
-          <li><a href="https://www.thaipbs.or.th/news/content/284389" target="_blank" rel="noopener noreferrer">ขยายผลจับกุม “โบท็อกซ์-ฟิลเลอร์” ผิดกฎหมาย — Thai PBS</a></li>
-          <li><a href="https://mgronline.com/crime/detail/9640000061060" target="_blank" rel="noopener noreferrer">ทลายโกดังจำหน่ายฟิลเลอร์-โบท็อกซ์เถื่อน มูลค่ากว่า 3 ล้านบาท — MGR Online</a></li>
-          <li><a href="https://www.matichon.co.th/local/news_4677367" target="_blank" rel="noopener noreferrer">บุกทลายแหล่งผลิต “โบท็อกซ์ปลอม” ยี่ห้อดังส่งคลินิกทั่วประเทศ — มติชน</a></li>
-          <li><a href="https://www.thairath.co.th/news/crime/2956689" target="_blank" rel="noopener noreferrer">ยึดโบท็อกซ์-ฟิลเลอร์เถื่อน ซุกคอนโดฯ ส่งขายตามออเดอร์ — ไทยรัฐ</a></li>
-          <li><a href="https://www.hfocus.org/content/2024/01/29618" target="_blank" rel="noopener noreferrer">สบส. เตือนหมอคลินิกความงาม ห้ามโฆษณา-รีวิวผลิตภัณฑ์ เข้าข่ายผิดกม.-จริยธรรม — Hfocus</a></li>
-          <li><a href="https://www.tcc.or.th/tcc_media/cosmetic-surgery/" target="_blank" rel="noopener noreferrer">ผู้บริโภคต้องรู้ โฆษณาเสริมความงามแบบไหนไม่ผิดกฎหมาย — สภาองค์กรของผู้บริโภค</a></li>
-          <li><a href="https://tgcthailand.com/blog/prohibited-words-and-phrases-not-allowed-in-cosmetic-advertising-updated-2026/" target="_blank" rel="noopener noreferrer">คำและข้อความต้องห้ามในการโฆษณาเครื่องสำอาง (อัปเดต 2026) — TGC Thailand</a></li>
-          <li><a href="https://amaranteclinic.co.th/blog/banned-words-healthcare-ads/" target="_blank" rel="noopener noreferrer">รวมคำต้องห้ามที่สถานพยาบาลไม่สามารถใช้โฆษณาได้ — Amarante Clinic</a></li>
-        </ul>
+        <h2>แหล่งอ้างอิงข้อมูล <span class="src-total">202 แหล่ง</span></h2>
+        <p class="src-note">แหล่งที่ติดป้าย <span class="new-tag">ใหม่</span> (<span id="srcNewCount">114</span> แหล่ง) คือแหล่งที่เพิ่มเมื่อ 20 ต.ค. 2569 ซึ่งผู้จัดทำเปิดอ่านเนื้อหาจริงทุกแหล่ง · ประกาศ/คู่มือทางการเป็นแหล่งหลัก ส่วนข่าวและบทความเป็นแหล่งรองที่ช่วยยืนยันรายการคำ — หากข้อความขัดกัน ให้ยึดฉบับทางการและตรวจประกาศล่าสุดก่อนใช้งานจริงเสมอ</p>
+        <input type="search" id="srcFilter" class="src-filter" placeholder="ค้นหาแหล่งอ้างอิง เช่น แพทยสภา, โบท็อกซ์, มติชน…" aria-label="ค้นหาแหล่งอ้างอิง">
+        <details class="src-group" open>
+          <summary>ประกาศ คู่มือ และเอกสารทางการ (สบส. · แพทยสภา · อย.)<span class="src-count">16</span></summary>
+          <ul>
+            <li><a href="https://www.hss.moph.go.th/show_topic.php?id=3163" target="_blank" rel="noopener noreferrer">ประกาศกรมสนับสนุนบริการสุขภาพ เรื่อง หลักเกณฑ์การโฆษณาสถานพยาบาล — hss.moph.go.th (ทางการ)</a></li>
+            <li><a href="https://www.hfocus.org/sites/default/files/files_upload/aenwthangkhxkhwamokhsna-prabaek-xapedth-11-2-69-1.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความโฆษณาสถานพยาบาล ฉบับปรับแก้ 11 ก.พ. 2569 (PDF)</a></li>
+            <li><a href="https://mrd.hss.moph.go.th/mrd1_hss/?p=7446" target="_blank" rel="noopener noreferrer">กองสถานพยาบาลและการประกอบโรคศิลปะ — ข้อกฎหมายการโฆษณาสถานพยาบาล</a></li>
+            <li><a href="https://www.kanpho.go.th/consumer/images/Form-Drugstore/example-word-advertise.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความการโฆษณาสถานพยาบาล (PDF) — สสจ.ขอนแก่น</a></li>
+            <li><a href="https://fdasamutsongkhram.org/clinic-advertising/" target="_blank" rel="noopener noreferrer">การโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล — สสจ.สมุทรสงคราม</a></li>
+            <li><a href="https://www.tmc.or.th/download/50_49.pdf" target="_blank" rel="noopener noreferrer">ประกาศแพทยสภา ที่ 50/2549 เรื่อง คำที่ห้ามใช้ในการโฆษณา (PDF ทางการ — tmc.or.th)</a></li>
+            <li><a href="https://cemc.fda.moph.go.th/press-release/296" target="_blank" rel="noopener noreferrer">ตำรวจ CIB ร่วม อย. ทลายแหล่งซุกโบท็อก-ฟิลเลอร์เถื่อน ส่งขายคลินิกทั่วประเทศ — ข่าวแจ้ง อย. (ทางการ)</a></li>
+            <li><a href="https://fdasamutsongkhram.org/wp-content/uploads/2025/12/example-word-advertise.pdf" target="_blank" rel="noopener noreferrer">แนวทางข้อความการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล (ฉบับปรับปรุง) — สสจ.สมุทรสงคราม</a></li>
+            <li><a href="https://hss.moph.go.th/webs/law/fileupload_doc/2023-03-28-7-21-3471543.pdf" target="_blank" rel="noopener noreferrer">คู่มือการพิจารณาอนุมัติการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล — กองกฎหมาย สบส. (PDF ทางการ)</a></li>
+            <li><a href="https://hss.moph.go.th/webs/law/fileupload_doc/2023-03-22-7-21-3471541.pdf" target="_blank" rel="noopener noreferrer">คู่มือการจัดการโฆษณาสถานพยาบาล — กองกฎหมาย สบส. (PDF ทางการ, ปีงบประมาณ 2559)</a></li>
+            <li><a href="https://www.si.mahidol.ac.th/Th/SIITA/hospital/4.pdf" target="_blank" rel="noopener noreferrer">ข้อบังคับแพทยสภาว่าด้วยการรักษาจริยธรรมแห่งวิชาชีพเวชกรรม พ.ศ. 2549 — สำเนาเผยแพร่โดย ม.มหิดล (PDF)</a></li>
+            <li><a href="https://www.tmc.or.th/download/service_law03_11.pdf" target="_blank" rel="noopener noreferrer">ระเบียบแพทยสภา เรื่อง การโฆษณาให้ส่วนลดหรือให้ผลประโยชน์เป็นค่าตอบแทนของสถานพยาบาล (2551) — tmc.or.th (PDF ทางการ)</a></li>
+            <li><a href="https://www.tmc.or.th/pdf/att-14-12-23-000.pdf" target="_blank" rel="noopener noreferrer">โฆษณาที่เกี่ยวข้องการแพทย์อย่างไร ให้ถูกต้องปลอดภัย — “ชวนหมอรู้ โดยแพทยสภา” ครั้งที่ 2/2566 (PDF ทางการ)</a></li>
+            <li><a href="https://nontfda.moph.go.th/./media/content/file/2026/06/CF-64-pdf24_merged-260622085818UxuTtG.pdf" target="_blank" rel="noopener noreferrer">เอกสารข่าว อย. (22 พ.ค. 2569) — อย. ร่วม สสจ. และ สบส. เร่งตรวจคลินิกทั่วประเทศ สกัดฟิลเลอร์/ยา/เครื่องสำอางผิดกฎหมาย (PDF ทางการ)</a></li>
+            <li><a href="https://pr.moph.go.th/./assets/uploads/news/2569/e016a267f98b4c1b12cb4847fa72bd87.pdf" target="_blank" rel="noopener noreferrer">ตำรวจสอบสวนกลาง (CIB) ร่วม อย. ทลายแหล่งผลิต นำเข้าและจำหน่ายเครื่องสำอางจดแจ้งเท็จ (20 พ.ค. 2569) — pr.moph.go.th (PDF ทางการ)</a></li>
+            <li><a href="https://www.tilleke.com/insights/advertisements-medical-facilities-now-require-preapproval-thailand" target="_blank" rel="noopener noreferrer">Advertisements for Medical Facilities Now Require Preapproval in Thailand (2018) — Tilleke &amp; Gibbins</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>กฎและบทลงโทษใหม่ของแพทยสภา / สบส. (ข่าวและบทวิเคราะห์ 2567–2569)<span class="src-count">20</span></summary>
+          <ul>
+            <li><a href="https://www.hfocus.org/content/2026/04/37673" target="_blank" rel="noopener noreferrer">อัปเดตคำต้องห้ามโฆษณาสถานพยาบาลฉบับล่าสุด — Hfocus</a></li>
+            <li><a href="https://www.hfocus.org/content/2025/01/32869" target="_blank" rel="noopener noreferrer">แพทยสภาออกประกาศใหม่ เพิ่มโทษพักใช้ใบอนุญาตแพทย์โฆษณาชวนเชื่อ — Hfocus</a></li>
+            <li><a href="https://dgh.agency/beauty-clinic-advertising-qa-2025/" target="_blank" rel="noopener noreferrer">รวม 18 คำถาม-คำตอบ กฎการโฆษณาคลินิกความงามฉบับใหม่ (มี.ค. 2568) — dgh.agency</a></li>
+            <li><a href="https://www.bangkokbiznews.com/social/688936" target="_blank" rel="noopener noreferrer">สธ. กาง 18 ข้อห้ามโฆษณาคลินิก - 15 คำห้ามแพทย์จ้อ — Bangkokbiznews</a></li>
+            <li><a href="https://www.komchadluek.net/news/edu-health/223391" target="_blank" rel="noopener noreferrer">15 คำห้ามแพทย์โม้โฆษณา — คมชัดลึก</a></li>
+            <li><a href="https://www.hfocus.org/content/2024/01/29618" target="_blank" rel="noopener noreferrer">สบส. เตือนหมอคลินิกความงาม ห้ามโฆษณา-รีวิวผลิตภัณฑ์ เข้าข่ายผิดกม.-จริยธรรม — Hfocus</a></li>
+            <li><a href="https://www.thansettakij.com/health/wellbeing/609265" target="_blank" rel="noopener noreferrer">“แพทยสภา” เอาจริง เพิ่มโทษคลินิก สถานพยาบาล ปฏิบัติ-โฆษณาเกินจริง (ประกาศแพทยสภา 62/2567) — ฐานเศรษฐกิจ</a></li>
+            <li><a href="https://www.bangkokbiznews.com/news/news-update/1241324" target="_blank" rel="noopener noreferrer">เช็กด่วน! แพทยสภา ประกาศกฎใหม่ คุมโฆษณาเสริมความงาม มีผลบังคับใช้พรุ่งนี้ (2 ก.ค. 2569) — Bangkokbiznews</a></li>
+            <li><a href="https://www.posttoday.com/smart-life/744878" target="_blank" rel="noopener noreferrer">บังคับใช้วันนี้! กฎใหม่แพทยสภา เข้มโฆษณาคลินิกความงาม บังคับแพทย์แสดงชื่อ-นามสกุลจริง — Post Today</a></li>
+            <li><a href="https://www.bangkokbiznews.com/news/news-update/1242740" target="_blank" rel="noopener noreferrer">คุมเข้มโฆษณา ‘คลินิกความงาม’ บังคับโชว์เลขแพทย์ สกัดหมอปลอม (12 ก.ค. 2569) — Bangkokbiznews</a></li>
+            <li><a href="https://www.hfocus.org/content/2026/07/38694" target="_blank" rel="noopener noreferrer">รัฐบาลคุมเข้ม “คลินิกเสริมความงาม” เตือนปชช.เช็กให้ดีก่อนฉีดโบท็อกซ์-ฟิลเลอร์ — Hfocus</a></li>
+            <li><a href="https://today.line.me/th/v3/article/1DeokYm" target="_blank" rel="noopener noreferrer">รัฐบาล คุมเข้มคลินิกเสริมความงาม แพทย์ต้องแสดงชื่อจริง เลขที่ใบอนุญาต — ข่าวสด (ผ่าน LINE TODAY)</a></li>
+            <li><a href="https://today.line.me/th/v3/article/JPglGZX" target="_blank" rel="noopener noreferrer">ยกระดับคุมเข้ม คลีนิกเสริมความงาม แพทย์ที่โฆษณาต้องแสดงชื่อ-นามสกุลจริงและเลขที่ใบอนุญาต เร่งปราบคลีนิกเถื่อน — สวพ.FM91 (ผ่าน LINE TODAY)</a></li>
+            <li><a href="https://www.pattayamail.com/news/thailand-warns-beauty-clinics-doctors-must-show-real-names-and-licenses-557312" target="_blank" rel="noopener noreferrer">Thailand warns beauty clinics doctors must show real names and licenses (13 Jul 2026) — Pattaya Mail</a></li>
+            <li><a href="https://en.thairath.co.th/news/politic/2945714" target="_blank" rel="noopener noreferrer">Government Urges Crackdown on Illegal Clinics, Orders Doctors to Display Full Name and License Number in Beauty Service Ads — Thairath Online</a></li>
+            <li><a href="https://www.hfocus.org/content/2026/07/38913" target="_blank" rel="noopener noreferrer">“เลขาฯ แพทยสภา” เตือนแพทย์ระวังบรรยายผลิตภัณฑ์สุขภาพ เสี่ยงเข้าข่ายโฆษณา หลัง อย. ออกเกณฑ์ใหม่ (28 ก.ค. 2569) — Hfocus</a></li>
+            <li><a href="https://www.hfocus.org/content/2026/08/39022" target="_blank" rel="noopener noreferrer">“หมออมร” ย้ำคนเชื่อถือวิชาชีพแพทย์ สื่อสารต้องระวังความเห็นส่วนตัว (6 ส.ค. 2569) — Hfocus</a></li>
+            <li><a href="https://www.thansettakij.com/health-wellness/665840" target="_blank" rel="noopener noreferrer">คุมเข้มโฆษณาอาหาร-การแพทย์ เขย่าผู้ค้าเฝ้าระวัง เกินจริง หลอกลวง (ส.ค. 2569) — ฐานเศรษฐกิจ</a></li>
+            <li><a href="https://www.bangkokbiznews.com/health/public-health/1162970" target="_blank" rel="noopener noreferrer">แพทย์โฆษณาเกินจริง! ศาลตัดสินหลอกลวง-ฉ้อโกง โทษคุก รวบถึงเจ้าของ-เอเจนซี (ม.ค. 2568) — Bangkokbiznews</a></li>
+            <li><a href="https://www.bangkokbiznews.com/news/1151604" target="_blank" rel="noopener noreferrer">โฆษณาเกินจริง ระวังโทษปรับ-จำคุก แพทยสภา ย้ำ Stem Cell รักษาโรคเลือด โรคทางดวงตา (ต.ค. 2567) — Bangkokbiznews</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>คำต้องห้ามและแนวทางโฆษณา (สบส. · สคบ. · บทความ)<span class="src-count">22</span></summary>
+          <ul>
+            <li><a href="https://www.tcc.or.th/tcc_media/cosmetic-surgery/" target="_blank" rel="noopener noreferrer">ผู้บริโภคต้องรู้ โฆษณาเสริมความงามแบบไหนไม่ผิดกฎหมาย — สภาองค์กรของผู้บริโภค</a></li>
+            <li><a href="https://tgcthailand.com/blog/prohibited-words-and-phrases-not-allowed-in-cosmetic-advertising-updated-2026/" target="_blank" rel="noopener noreferrer">คำและข้อความต้องห้ามในการโฆษณาเครื่องสำอาง (อัปเดต 2026) — TGC Thailand</a></li>
+            <li><a href="https://amaranteclinic.co.th/blog/banned-words-healthcare-ads/" target="_blank" rel="noopener noreferrer">รวมคำต้องห้ามที่สถานพยาบาลไม่สามารถใช้โฆษณาได้ — Amarante Clinic</a></li>
+            <li><a href="https://www.bangkokbiznews.com/health/public-health/1228807" target="_blank" rel="noopener noreferrer">เปิดลิสต์ “คำผิดกฎหมาย” รพ.-คลินิกห้ามใช้โฆษณา (ฉบับปี 2569) — Bangkokbiznews</a></li>
+            <li><a href="https://www.bangkokbiznews.com/health/public-health/1230893" target="_blank" rel="noopener noreferrer">6 เดือนพบสถานพยาบาล 89 แห่ง โพสต์โฆษณาผิดกฎหมายเกิน 50% สบส.เร่งจัดการ — Bangkokbiznews</a></li>
+            <li><a href="https://today.line.me/th/v3/article/RBkyWM3" target="_blank" rel="noopener noreferrer">สบส.อัปเดตคำต้องห้ามใช้โฆษณา รพ.-คลินิก “กีหลวม-จึ้งเกิน-ตัวแม่” (สัมภาษณ์รองอธิบดี สบส.) — มติชน/LINE Today</a></li>
+            <li><a href="https://www.khaosod.co.th/special-stories/news_10201411" target="_blank" rel="noopener noreferrer">เช็กเลย สบส.อัพเดต คำต้องห้ามใช้โฆษณา ทั้ง “หลวม ฟิต-แข็ง อึด ถึก ทน-จึ้งเกิน-พส.จีน” (7 เม.ย. 2569) — ข่าวสด</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1708450" target="_blank" rel="noopener noreferrer">แนะผู้บริโภคอย่าเชื่อ! โฆษณา รพ. ‘รักษาได้ผลชัวร์-เก่งที่สุด-หายทุกโรค’ ชี้เกินจริง (2562) — มติชน</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1673842" target="_blank" rel="noopener noreferrer">สบส.ถกยกร่างกม. 2 ฉบับ แนวทางโฆษณา-ประกาศสถานพยาบาล และการคุ้มครองผู้ป่วยฉุกเฉินวิกฤต (2562) — มติชน</a></li>
+            <li><a href="https://www.bangkokbiznews.com/social/971857" target="_blank" rel="noopener noreferrer">กรม สบส. แนะนำ รพ.เอกชน/คลินิก ขออนุมัติโฆษณาทุกครั้งก่อนเผยแพร่ (2564) — Bangkokbiznews</a></li>
+            <li><a href="https://www.thansettakij.com/business/192601" target="_blank" rel="noopener noreferrer">สบส. ตั้งทีมจับตาโฆษณาคลินิก เป็นด่านหน้า ขจัดภัยโฆษณาเวอร์ หลอกลวงผู้บริโภค!! (2560) — ฐานเศรษฐกิจ</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_243424" target="_blank" rel="noopener noreferrer">สบส.เตือนอย่าหลงเชื่อคลินิกเสริมความงาม อ้างช่วยผิวขาวใส ไม่จริง ! เสี่ยงมะเร็งผิวหนัง (2559) — มติชน</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9560000028511" target="_blank" rel="noopener noreferrer">เอาจริง! สธ.เตือนบรรดาคลินิกเสริมความงาม หากโฆษณาเกินจริง ถือว่ามีความผิดทุกสาขา ต้องโดนปรับทั้งหมด (2556) — MGR Online</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9560000056922" target="_blank" rel="noopener noreferrer">แพทยสภาเล็งฟันคลินิกหน้าเด้งโฆษณาเกินจริง (2556) — MGR Online</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9540000017590" target="_blank" rel="noopener noreferrer">อย.เตือนคลินิกเสริมความงามอย่าโฆษณาเกินจริง ตรวจเข้มมีนาฯ นี้ (2554) — MGR Online</a></li>
+            <li><a href="https://www.thansettakij.com/business/economy/609840" target="_blank" rel="noopener noreferrer">สคบ. เตือน 3 คำต้องห้าม เสี่ยงเข้าข่าย “โฆษณาเกินจริง” มีโทษหนัก (ต.ค. 2567) — ฐานเศรษฐกิจ</a></li>
+            <li><a href="https://www.thansettakij.com/economy/524761" target="_blank" rel="noopener noreferrer">เปิดกฎหมายคุมโฆษณา สคบ. นำเสนอแบบนี้มีสิทธิติดคุก (2565) — ฐานเศรษฐกิจ</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_18463" target="_blank" rel="noopener noreferrer">สบส.พบคลินิกเลเซอร์ผิวไม่ใช่แพทย์ เร่งตรวจจับ เข้าข่ายหมอเถื่อน (2559) — มติชน</a></li>
+            <li><a href="https://matichon.co.th/local/quality-life/news_5834732" target="_blank" rel="noopener noreferrer">สบส. เตรียมลงตรวจคลินิกย่านลาดพร้าว เคสดูดไขมันไม่ตรงปก ย้ำอย่าหลงเชื่อโฆษณาเกินจริง (ส.ค. 2569) — มติชน</a></li>
+            <li><a href="https://www.pattayamail.com/thailandnews/thailands-nbtc-warns-against-misleading-cosmetic-surgery-ads-391696" target="_blank" rel="noopener noreferrer">Thailand’s NBTC warns against misleading cosmetic surgery ads — Pattaya Mail</a></li>
+            <li><a href="https://www.relevantaudience.com/th/how-to-use-advertising-words" target="_blank" rel="noopener noreferrer">คำต้องห้าม! เลือกใช้คำโฆษณาอย่างไรไม่ให้ผิดกฎหมาย อัปเดตปี 2026 — Relevant Audience</a></li>
+            <li><a href="https://hdmall.co.th/jib-os/resources/44-clinic-advertising-permit-before-running-ads/" target="_blank" rel="noopener noreferrer">ขออนุญาตโฆษณาคลินิก ต้องทำอย่างไรบ้าง ก่อนเริ่มยิงแอด — HDmall</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>ฟิลเลอร์ โบท็อกซ์ และผลิตภัณฑ์สุขภาพ (อย. · ข่าวการตรวจจับ)<span class="src-count">17</span></summary>
+          <ul>
+            <li><a href="https://www.bangkokbiznews.com/health/public-health/1159692" target="_blank" rel="noopener noreferrer">เช็กชัดๆ “ฟิลเลอร์” ยี่ห้อไหนผ่านอย. ย้ำโฆษณาไม่ตรงรับอนุญาต ระงับทันที — Bangkokbiznews</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/284389" target="_blank" rel="noopener noreferrer">ขยายผลจับกุม “โบท็อกซ์-ฟิลเลอร์” ผิดกฎหมาย — Thai PBS</a></li>
+            <li><a href="https://mgronline.com/crime/detail/9640000061060" target="_blank" rel="noopener noreferrer">ทลายโกดังจำหน่ายฟิลเลอร์-โบท็อกซ์เถื่อน มูลค่ากว่า 3 ล้านบาท — MGR Online</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_4677367" target="_blank" rel="noopener noreferrer">บุกทลายแหล่งผลิต “โบท็อกซ์ปลอม” ยี่ห้อดังส่งคลินิกทั่วประเทศ — มติชน</a></li>
+            <li><a href="https://www.thairath.co.th/news/crime/2956689" target="_blank" rel="noopener noreferrer">ยึดโบท็อกซ์-ฟิลเลอร์เถื่อน ซุกคอนโดฯ ส่งขายตามออเดอร์ — ไทยรัฐ</a></li>
+            <li><a href="https://www.matichon.co.th/publicize/news_5836019" target="_blank" rel="noopener noreferrer">แบรนด์-นักการตลาด-อินฟลูฯ ต้องรู้! ปลดล็อกข้อสงสัย “โฆษณาผลิตภัณฑ์สุขภาพ” แบบไหนต้องขอ อย. ? (ส.ค. 2569) — มติชน</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1773368" target="_blank" rel="noopener noreferrer">อย.เปิดระบบออนไลน์ให้ประชาชนร่วมตรวจสอบ ‘โฆษณาเกินจริง’ (2562) — มติชน</a></li>
+            <li><a href="https://thestandard.co/?p=812774" target="_blank" rel="noopener noreferrer">อย. แนะก่อนฉีดฟิลเลอร์ตรวจดูผลิตภัณฑ์ เลือกคลินิกที่ได้มาตรฐาน เตือนระวังผลข้างเคียงเนื้อเยื่อตาย-ตาบอด (2566) — THE STANDARD</a></li>
+            <li><a href="https://www.dailynews.co.th/news/1498883/" target="_blank" rel="noopener noreferrer">อย.เตือนแผ่นแปะสะดือลดไขมัน ไร้ใบอนุญาต-คนแพ้เสี่ยงเสียชีวิต! (2561) — เดลินิวส์ (ตัวอย่างเครื่องมือแพทย์โฆษณาโดยไม่ขออนุญาต)</a></li>
+            <li><a href="https://www.prachachat.net/?p=1672151" target="_blank" rel="noopener noreferrer">อินฟลูสายความงามต้องรู้ โฆษณาเครื่องสำอาง อะไรทำได้-ไม่ได้ (ต.ค. 2567) — ประชาชาติธุรกิจ</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/292646" target="_blank" rel="noopener noreferrer">ด่วน! อย.เรียกเก็บคืนยาฉีดโบท็อกซ์ยี่ห้อ Neuronox® (2563) — Thai PBS</a></li>
+            <li><a href="https://www.bangkokbiznews.com/news/news-update/1235019" target="_blank" rel="noopener noreferrer">บุกคาเฟ่ตรวจค้น โบท็อก-ฟิลเลอร์ ส่งขายคลินิกทั่วประเทศ ฟัน 4 ข้อหา (พ.ค. 2569) — Bangkokbiznews</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/38470" target="_blank" rel="noopener noreferrer">สาวอยากสวยพึงระวัง เจอโบท็อกซ์ ฟิลเลอร์ คอลลาเจนเถื่อน อย.-ดีเอสไอ ทะลาย 12 แหล่งนำเข้าผิดกม. สวมสิทธิ์ทะเบียนผู้อื่น (2562) — ไทยโพสต์</a></li>
+            <li><a href="https://www.prachachat.net/public-relations/news-1511379" target="_blank" rel="noopener noreferrer">“พวงเพ็ชร” บุกทลายโกดัง พบ ฟิลเลอร์-โบท็อกซ์ไร้ อย. (ก.พ. 2567) — ประชาชาติธุรกิจ</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_3091334" target="_blank" rel="noopener noreferrer">อย.เผยผลตรวจคลินิกพิมรี่พาย ยังไม่พบโบท็อกซ์-ฟิลเลอร์ ปลอม (2564) — มติชน</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9570000091783" target="_blank" rel="noopener noreferrer">โวย! เกณฑ์หมอฉีด “โบท็อกซ์” ไม่ชัด (2557) — MGR Online</a></li>
+            <li><a href="https://www.bangkokbiznews.com/social/589787" target="_blank" rel="noopener noreferrer">อย.ออกประกาศคุมเข้ม ‘โบท็อกซ์’ (2557) — Bangkokbiznews</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>งานวิจัยการโฆษณาคลินิกรายจังหวัด (TCI-Thaijo)<span class="src-count">11</span></summary>
+          <ul>
+            <li><a href="https://he02.tci-thaijo.org/index.php/JOHCP/article/view/279627" target="_blank" rel="noopener noreferrer">ความเสี่ยงต่อผู้บริโภคจากการโฆษณาออนไลน์ของคลินิกเสริมความงาม: การวิเคราะห์กฎหมายสถานพยาบาลและบทบาทของการออกคำสั่งปกครอง กรณีศึกษาจังหวัดศรีสะเกษ — วารสารการคุ้มครองผู้บริโภคด้านสุขภาพ</a></li>
+            <li><a href="https://he02.tci-thaijo.org/index.php/JOHCP/article/view/279130" target="_blank" rel="noopener noreferrer">การเฝ้าระวังการโฆษณาทางสื่อออนไลน์ที่ฝ่าฝืนกฎหมาย ของคลินิกทางด้านเวชกรรมที่ให้บริการเสริมความงามในจังหวัดราชบุรี (2569) — วารสารการคุ้มครองผู้บริโภคด้านสุขภาพ</a></li>
+            <li><a href="https://he02.tci-thaijo.org/index.php/JOHCP/article/view/281185" target="_blank" rel="noopener noreferrer">การศึกษาการละเมิดกฎหมายโฆษณาสถานพยาบาลบน Facebook ของคลินิกบริการเสริมความงามในจังหวัดนครศรีธรรมราช (2569) — วารสารการคุ้มครองผู้บริโภคด้านสุขภาพ</a></li>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/249495" target="_blank" rel="noopener noreferrer">ความชุกของโฆษณาทางสื่อออนไลน์ที่ฝ่าฝืนกฎหมายของคลินิกเวชกรรมที่ให้บริการเสริมความงามในจังหวัดเพชรบูรณ์ (2565) — วารสารเภสัชกรรมไทย</a></li>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/250401" target="_blank" rel="noopener noreferrer">การโฆษณาทางสื่อสังคมออนไลน์ที่ฝ่าฝืนกฎหมายของคลินิกเวชกรรม ที่ให้บริการเสริมความงามในจังหวัดมหาสารคาม (2565) — วารสารเภสัชกรรมไทย</a></li>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/269123" target="_blank" rel="noopener noreferrer">ความชุกของการโฆษณาทางสื่อออนไลน์ที่ฝ่าฝืนกฎหมาย ของสถานพยาบาลเอกชนในจังหวัดชลบุรี (2568) — วารสารเภสัชกรรมไทย</a></li>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/171390" target="_blank" rel="noopener noreferrer">ความชุกของการโฆษณาทางสื่อออนไลน์ที่ฝ่าฝืนกฎหมายของคลินิกเวชกรรม ที่ให้บริการด้านความงามในอำเภอเมืองของจังหวัดแห่งหนึ่งในภาคใต้ (2562) — วารสารเภสัชกรรมไทย</a></li>
+            <li><a href="https://he02.tci-thaijo.org/index.php/JOHCP/article/view/261022" target="_blank" rel="noopener noreferrer">ผลของการพัฒนาการให้คำแนะนำการขออนุญาตโฆษณาสถานพยาบาลเอกชนในจังหวัดอุดรธานี (2566) — วารสารการคุ้มครองผู้บริโภคด้านสุขภาพ</a></li>
+            <li><a href="https://he02.tci-thaijo.org/index.php/JOHCP/article/view/261813" target="_blank" rel="noopener noreferrer">สถานการณ์โฆษณาทางสื่อออนไลน์ของสถานพยาบาลเอกชนในจังหวัดหนองบัวลำภู (2566) — วารสารการคุ้มครองผู้บริโภคด้านสุขภาพ</a></li>
+            <li><a href="https://so06.tci-thaijo.org/index.php/hej/article/view/282331" target="_blank" rel="noopener noreferrer">ผลการพัฒนาโปรแกรมส่งเสริมการขออนุญาตโฆษณาของสถานพยาบาลเอกชนในจังหวัดบุรีรัมย์ (2568) — วารสารสิ่งแวดล้อมศึกษาการแพทย์และสุขภาพ</a></li>
+            <li><a href="https://so01.tci-thaijo.org/index.php/gjournal-ksu/article/view/268262" target="_blank" rel="noopener noreferrer">การจัดการปัญหาการโฆษณาทางสื่อสังคมออนไลน์ที่ฝ่าฝืนกฎหมายของคลินิกเวชกรรมที่ให้บริการเสริมความงาม จังหวัดมหาสารคาม (2567) — วารสารการบริหารปกครอง ม.กาฬสินธุ์</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>นโยบายแพลตฟอร์มโฆษณาและคู่มือการตลาดคลินิก (Meta · Google · อื่นๆ)<span class="src-count">2</span></summary>
+          <ul>
+            <li><a href="https://transparency.meta.com/policies/ad-standards/objectionable-content/personal-health-and-appearance" target="_blank" rel="noopener noreferrer">Meta Ad Standards — Personal Health and Appearance (ภาพก่อน-หลัง / การสร้างความรู้สึกเชิงลบต่อรูปลักษณ์)</a></li>
+            <li><a href="https://www.relevantaudience.com/google-ads-en/google-ads-for-clinics-banned-words/" target="_blank" rel="noopener noreferrer">Google Ads for Clinics: How to Avoid Banned Words and Ad Bans (2026) — Relevant Audience</a></li>
+            <li><a href="https://support.google.com/merchants/answer/6150151?hl=en" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>Healthcare &amp; medicines — Google Merchant Center Help</a></li>
+            <li><a href="https://www.accelerateddigitalmedia.com/insights/guide-to-social-media-health-ad-restrictions-2026/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>2026 Health Advertising Policies on Social Media: What Meta, TikTok, and Others Prohibit (Accelerated Digital Media, 27 ส.ค. 2026)</a></li>
+            <li><a href="https://hdmall.co.th/jib-os/resources/41-clinic-advertising-rules-before-running-ads/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ยิงแอดคลินิก ต้องรู้อะไรบ้าง กฎโฆษณาก่อนลงโฆษณา (Jib OS by HDmall)</a></li>
+            <li><a href="https://hdmall.co.th/jib-os/resources/201-before-after-photo-log/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ทะเบียนภาพก่อน-หลัง และความยินยอม (Jib OS by HDmall)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>เอกสารแนวทางและกฎหมายทางการ (เพิ่มเติม)<span class="src-count">6</span></summary>
+          <ul>
+            <li><a href="https://hss.moph.go.th/fileupload_doc/2020-05-12-1-20-517733020.pdf" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ตัวอย่างข้อความแนวทางการพิจารณาอนุมัติ/ไม่อนุมัติข้อความโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล (กรม สบส.)</a></li>
+            <li><a href="https://hss.moph.go.th/fileupload/2568-A00369.pdf" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>แนวทางข้อความการโฆษณาหรือประกาศเกี่ยวกับสถานพยาบาล (กอง สรพ. กรม สบส., ฉบับ 2568)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_436676" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.ส่งหนังสือเวียนแจ้งบังคับใช้ พ.ร.บ.สถานพยาบาล ฉบับที่ 4 — โทษโฆษณาโอ้อวด (มติชน, 22 ม.ค. 2560)</a></li>
+            <li><a href="https://tmc.or.th/service_law02_17.php" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ข้อบังคับแพทยสภา ว่าด้วยการรักษาจริยธรรมแห่งวิชาชีพเวชกรรม พ.ศ. 2549 (หน้ากฎหมาย แพทยสภา)</a></li>
+            <li><a href="https://www.tmc.or.th/news_file/tmc-rule-2549.pdf" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ข้อบังคับแพทยสภา ว่าด้วยการรักษาจริยธรรมแห่งวิชาชีพเวชกรรม พ.ศ. 2549 (ฉบับ PDF)</a></li>
+            <li><a href="https://exfood.fda.moph.go.th/law/data/announ_fda/64_Advertising.PDF" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ประกาศ อย. เรื่อง หลักเกณฑ์การโฆษณาอาหาร พ.ศ. 2564 (ลงราชกิจจาฯ 30 มี.ค. 2564)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>ข่าว สบส. / กระทรวงสาธารณสุข — ตรวจจับและเตือนโฆษณาสถานพยาบาล<span class="src-count">31</span></summary>
+          <ul>
+            <li><a href="https://today.line.me/th/v3/article/3NY8eYE" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>เช็กเลย สบส.อัพเดต คำต้องห้ามใช้โฆษณา ทั้ง "หลวม ฟิต-แข็ง อึด ถึก ทน-จึ้งเกิน-พส.จีน" (ข่าวสด ผ่าน LINE TODAY, 7 เม.ย. 2569)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9560000143450" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.เตือนคลินิกเสริมความงามอวดอ้าง (MGR Online, 19 พ.ย. 2556)</a></li>
+            <li><a href="https://www.matichon.co.th/lifestyle/news_19195" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.พบ 'คลินิกเลเซอร์ผิว' ไม่ใช่แพทย์ เร่งตรวจจับเข้าข่ายหมอเถื่อน (มติชน, 30 ม.ค. 2559)</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/280820" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>เตือนรีวิวแจกคอร์สเสริมจมูก-หน้าอก ผ่านโซเชียล ผิดกฎหมาย (ไทยพีบีเอส, 12 มิ.ย. 2562)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1249325" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.ส่งนัก กม.ช่วย สสจ.ปทุมธานี ตรวจ "คลินิกทำนมเน่า" หากมีนายหน้าโฆษณาเอาผิดหมด (มติชน, 29 พ.ย. 2561)</a></li>
+            <li><a href="https://www.infoquest.co.th/?p=74156" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สธ.สั่ง รพ.เอกชนระงับโฆษณาจองวัคซีนโควิด ย้ำยังไม่อนุญาตให้สถานพยาบาลเปิดจอง (อินโฟเควสท์, 29 มี.ค. 2564)</a></li>
+            <li><a href="https://www.thebangkokinsight.com/news/politics-general/general/705460/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรมสนับสนุนบริการสุขภาพเรียกสอบคลินิกไลฟ์สดรีแพร์ช่องคลอด ผิดกฎหมายสถานพยาบาล (The Bangkok Insight, 7 ก.ย. 2564)</a></li>
+            <li><a href="https://www.hss.moph.go.th/show_topic.php?id=146" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส. คุมเข้ม คลินิกเสริมความงามทั่วไทย แพทย์ไม่จบเฉพาะทางความงาม-ผิวหนัง ห้ามรักษา! (กรม สบส., แผนงานปี 2559)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=221" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. คาดโทษ ปิดสถานเสริมความงาม หากทำผิดซ้ำซาก — โฆษณาเกินจริงและโปรโมชั่นต้องห้าม (กรม สบส., ม.ค. 2559)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=393" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.อบรม "คลินิกเสริมความงาม" ปฏิบัติเข้มกฎหมาย 2 ฉบับ ป้องปรามกระทำผิด (กรม สบส., 2 มิ.ย. 2559)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=547" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อธิบดีกรม สบส. เตือนคลินิกเสริมความงาม นำเข้า "หมอเกาหลี" ลัดฟ้ามาบริการ ถือว่าผิดกฎหมาย (กรม สบส.)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=1162" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. คุมเข้มมาตรฐานคลินิกเสริมความงาม มุ่งคุ้มครองผู้บริโภค ป้องปรามการกระทำผิดในสถานพยาบาล (กรม สบส.)</a></li>
+            <li><a href="https://www.hss.moph.go.th/show_topic.php?id=716" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. เตือนหนุ่ม-สาวอย่าด่วนตัดสินใจเสริมความงามตามคำโฆษณาผ่านสื่อโซเชียล เสี่ยงตกเป็นเหยื่อหมอเถื่อน (กรม สบส.)</a></li>
+            <li><a href="https://www.hss.moph.go.th/show_topic.php?id=708" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. ห้าม!! สปา ร้านเสริมสวยฉีดสารเสริมความงาม ชี้ผิดกฎหมาย และอันตรายสูง (กรม สบส.)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=681" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. ส่งเจ้าหน้าที่ตรวจสอบคลินิกดูดไขมันย่านสยามสแควร์ หลังทำหน้าท้องสาวไหม้ (กรม สบส., 24 พ.ย. 2559)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=4698" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. แนะนำ รพ.เอกชน/คลินิก ขออนุมัติโฆษณาทุกครั้งก่อนเผยแพร่ — ตัวอย่างคำต้องห้าม (กรม สบส.)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=3056" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. แนะประชาชนเช็กให้ชัวร์ก่อนรับบริการ อย่าหลงเชื่อโฆษณาเกินจริง (กรม สบส.)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=303" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อธิบดีกรม สบส. สั่งเจ้าหน้าที่เร่งตรวจสอบสถานพยาบาล "โฆษณาสะกดจิตบำบัดโรค" (กรม สบส., 16 มี.ค. 2559)</a></li>
+            <li><a href="https://hss.moph.go.th/show_topic.php?id=2111" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรม สบส. แนะสถานพยาบาลขออนุมัติเผยแพร่โฆษณาทุกครั้ง ได้ประโยชน์ทุกฝ่าย (กรม สบส.)</a></li>
+            <li><a href="https://hcpr.hss.moph.go.th/archives/hss-news/11021/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส. จับมือเครือข่ายแพลตฟอร์มออนไลน์ชั้นนำ ป้องปรามโฆษณาเกินจริง เอาเปรียบผู้บริโภค (กรม สบส., 23 เม.ย. 2569)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_7193" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อยากสวย-หล่อแห่ฉีด "โบท็อกซ์" ทั่วโลก 5 ล้านครั้ง — สบส. เตือนโฆษณาลดแลกแจกแถม/ฟรี ตามประกาศ สธ. ฉบับที่ 11 (มติชน, 20 ม.ค. 2559)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1269918" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"สบส." ส่งทีมสอบคลินิก 2 แห่ง หลังถูกอ้างมีเอี่ยวเอเจนซี่ชวนสาวศัลยกรรม (มติชน, 12 ธ.ค. 2561)</a></li>
+            <li><a href="https://www.thansettakij.com/general-news/484161" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.กำหนด 5 แนวทาง เอกชนโฆษณาวัคซีนโควิด ป้องปรามโอ้อวดเกินจริง (ฐานเศรษฐกิจ, 16 มิ.ย. 2564)</a></li>
+            <li><a href="https://www.naewna.com/lady/columnist/60763" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>stem cell หรือเซลล์ต้นกำเนิด คืออะไร? (คอลัมน์ทันโลกทันเหตุการณ์ โดยแพทยสภา, แนวหน้า, 2 พ.ย. 2567)</a></li>
+            <li><a href="https://www.infoquest.co.th/?p=442423" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>MEDEZE ยันทำตามกม.แพทยสภา-สธ. แค่รับฝาก Stem Cell ไม่ได้นำไปใช้ (อินโฟเควสท์, 4 พ.ย. 2567)</a></li>
+            <li><a href="https://www.naewna.com/business/columnist/60755" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>แพทย์ กับการโฆษณาธุรกิจเสริมความงามและอาหารเพื่อสุขภาพ (คอลัมน์ กฎ กติกา ธุรกิจ, แนวหน้า, 1 พ.ย. 2567)</a></li>
+            <li><a href="https://www.thansettakij.com/blogs/columnist/editorial/609479" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ตีกรอบ "คลินิก-สถานพยาบาล" อุ่นใจประชาชน (บทบรรณาธิการ ฐานเศรษฐกิจ, 16 ต.ค. 2567)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_937652" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สมาคมศัลยกรรมฯ ร้อง "ปิยะสกล" กม.คุมโฆษณาสถานพยาบาลมีปัญหา! (มติชน, 1 พ.ค. 2561)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_243694" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>กรมสนับสนุนบริการฯ เตือนโจ๋ฮิต "ขาว" เสี่ยงมะเร็ง ขู่คลินิกโฆษณาเกินจริงจับ-ปรับ (มติชน, 9 ส.ค. 2559)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_1438715" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.ประสานข้อมูล ตร. หาสถานพยาบาลใดรู้เห็นเป็นใจโฆษณา "เฟซออฟเซปิง" (มติชน, 5 เม.ย. 2562)</a></li>
+            <li><a href="https://www.thansettakij.com/general-news/475949" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.ฟัน "รพ.บำรุงราษฎร์" โฆษณาลงทะเบียน "วัคซีนโควิด-19" ไม่ได้รับอนุญาต (ฐานเศรษฐกิจ, 15 เม.ย. 2564)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>ข่าวคลินิกความงาม ศัลยกรรม ดูดไขมัน ฟิลเลอร์ โบท็อกซ์ — การตรวจจับและดำเนินคดี<span class="src-count">14</span></summary>
+          <ul>
+            <li><a href="https://www.dailynews.co.th/news/6087308/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ศุภมาส" ห่วงเคสดูดไขมันร่อง 11 สั่ง สคบ. ตรวจคลินิกเสริมความงาม (เดลินิวส์, 6 ส.ค. 2569)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/76093" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ฟันคลินิกดูดไขมัน โฆษณาไร้อนุญาต (ไทยโพสต์, 1 ก.ย. 2563)</a></li>
+            <li><a href="https://today.line.me/th/v3/article/kERa8Lk" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ศุภมาส" ห่วงเทรนด์ดูดไขมันสร้างร่อง 11 สั่ง สคบ. ตรวจสอบคลินิกเสริมความงาม (ไทยรัฐ ผ่าน LINE TODAY, 6 ส.ค. 2569)</a></li>
+            <li><a href="https://www.matichon.co.th/local/crime/news_2329325" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส.-ผกก.บางโพงพาง ตรวจคลินิกศัลยกรรม พบโฆษณาฉีดไขมันไม่ได้ขออนุญาต (มติชน, 31 ส.ค. 2563)</a></li>
+            <li><a href="https://today.line.me/th/v3/article/Ggrezq7" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>รัฐบาลยกระดับคุมเข้ม "คลีนิกเสริมความงาม" ดูแลผู้บริโภค เร่งปราบหมอเถื่อน! (TNN ช่อง 16 ผ่าน LINE TODAY, ก.ค. 2569)</a></li>
+            <li><a href="https://today.line.me/th/v3/article/5yPYJRV" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>เร่งปราบคลินิกเถื่อน สั่งแพทย์โฆษณาเสริมความงามต้องแสดง ชื่อ–นามสกุล–เลขที่ใบอนุญาต (ไทยรัฐ ผ่าน LINE TODAY, 12 ก.ค. 2569)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9590000098308" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>จับคลินิกเสริมความงามเถื่อนย่านธนบุรี ใช้ "หมอปลอม" ดูดไขมัน ทำเส้นเลือดขาดจนช็อก (MGR Online, 29 ก.ย. 2559)</a></li>
+            <li><a href="https://www.amarintv.com/news/crime/550869" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>รวบ "หมอเถื่อน" จบ ปวช.-ม.6 เปิดบ้านรับฉีดฟิลเลอร์-โบท็อกซ์เอง (Amarin TV, 6 ก.ค. 2569)</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/319664" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ตร.-สบส.บุกรวบหมอกระเป๋า ลอบฉีดโบท็อกซ์-ฟิลเลอร์กลางกรุงฯ (ไทยพีบีเอส, 21 ก.ย. 2565)</a></li>
+            <li><a href="https://www.dailynews.co.th/news/6003989/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>จับ "2 สาว ปวช.-ม.6" ฝันอยากเป็นหมอ เปิดคลินิกเถื่อนรับจ้างฉีดโบท็อกซ์-ฟิลเลอร์ (เดลินิวส์, 6 ก.ค. 2569)</a></li>
+            <li><a href="https://www.khaosod.co.th/breaking-news/news_1924981" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สาวเหยื่อคลินิกทำนมเน่า จี้ เอาผิดเอเจนซี่ เจ้าของคลินิก ชี้โดน 6 ข้อหา (ข่าวสด, 7 ธ.ค. 2561)</a></li>
+            <li><a href="https://www.hfocus.org/content/2026/08/39006" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สบส. เตรียมส่งทีมตรวจสอบ คลินิกย่านลาดพร้าว ดูดไขมันหน้าท้องไม่ตรงปก (Hfocus, 5 ส.ค. 2569)</a></li>
+            <li><a href="https://www.amarintv.com/news/social/544203" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ศัลยกรรมมรณะ! "กัน จอมพลัง" บุก สบส. ขยี้ปม "น้องกวาง" ดับคาคลินิก — สบส. เตือนตรวจเลขอนุญาตโฆษณา (Amarin TV, 24 เม.ย. 2569)</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/296017" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ญาติติดใจสาวดูดไขมันเสริมหน้าอกดับ รอผลชันสูตร รพ.ตำรวจ — คลินิกยังไม่ขออนุญาตโฆษณา (ไทยพีบีเอส, 31 ส.ค. 2563)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>อย. — เครื่องสำอาง ยา ปากกาลดน้ำหนัก เครื่องมือแพทย์ (ข่าวและประกาศ)<span class="src-count">16</span></summary>
+          <ul>
+            <li><a href="https://www.thansettakij.com/health-wellness/health/648566" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>โฆษณาเว่อร์! "ปากกาฉีดลดน้ำหนัก" อย.ชี้อันตรายเสี่ยงไตวาย-โยโย่ (ฐานเศรษฐกิจ, 9 ม.ค. 2569)</a></li>
+            <li><a href="https://thestandard.co/?p=1189207" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. ยกระดับ ปากกาลดน้ำหนัก เป็นยาควบคุมพิเศษ ต้องมีใบสั่งแพทย์เท่านั้น (THE STANDARD, 19 มี.ค. 2569)</a></li>
+            <li><a href="https://www.infoquest.co.th/?p=447090" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คุมเข้มโฆษณาเครื่องสำอางเกินจริง (อินโฟเควสท์, 19 พ.ย. 2567)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_155394" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>หลอกลวง! อย.เตือนอย่าเชื่อ "แท่งลบรอยเหี่ยวย่น" ไม่จริง ใครขายมีโทษปรับร่วมแสน (มติชน, 31 พ.ค. 2559)</a></li>
+            <li><a href="https://www.naewna.com/lady/894635" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ดีพร้อม ดึง อย. ติวเข้มผู้ประกอบการเครื่องสำอาง ปั้นแบรนด์ผ่านมาตรฐาน โฆษณาถูกกฎหมาย (แนวหน้า, 27 มิ.ย. 2568)</a></li>
+            <li><a href="https://pr.moph.go.th/online/index/news/310229" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. เข้ม จัดการโฆษณาเครื่องมือแพทย์ที่อวดอ้างเกินจริง เกินข้อบ่งใช้ที่ได้รับอนุญาต (สำนักสารนิเทศ สป.สธ.)</a></li>
+            <li><a href="https://www.fda.moph.go.th/news/110968" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. ย้ำ! การโฆษณาเครื่องสำอาง ไม่ต้องขอใบอนุญาต แต่ต้องเป็นธรรมต่อผู้บริโภค (อย., 11 ก.ย. 2568)</a></li>
+            <li><a href="https://www.fda.moph.go.th/news/news922569" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. เตือน ระวังเครื่องสำอาง อ้าง "ขาวไว" อาจผสม "สเตียรอยด์" ทำผิวพัง! (อย., 28 ม.ค. 2569)</a></li>
+            <li><a href="https://cemc.fda.moph.go.th/press-release/pr-92" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ตำรวจสอบสวนกลาง (CIB) ร่วม อย. ทลายเครือข่ายผลิตและจำหน่ายเครื่องสำอางต้องห้าม มูลค่ากว่า 3 ล้านบาท (อย., 17 ม.ค. 2567)</a></li>
+            <li><a href="https://www.thansettakij.com/content/467645" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. จับมือ "ตำรวจไซเบอร์" ไล่ล่าสินค้าโฆษณาเกินจริง (ฐานเศรษฐกิจ, 5 ก.พ. 2564)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9560000053227" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.จับผลิตภัณฑ์อ้างเปลี่ยนหัวนมดำคล้ำเป็นสีชมพู ย้ำหลอกลวงผู้บริโภค (MGR Online, 3 พ.ค. 2556)</a></li>
+            <li><a href="https://www.thansettakij.com/health-wellness/health/668912" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. คุมเข้ม "ปากกาลดน้ำหนัก" ต้องมีใบสั่งแพทย์ เริ่ม 15 ก.ย. 2569 (ฐานเศรษฐกิจ, 14 ก.ย. 2569)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9510000025876" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.คาดโทษคลินิกชื่อดัง อ้างใช้สเต็มเซลล์ช่วยชะลอแก่ อวดอ้างเกินจริง (MGR Online, 2 มี.ค. 2551)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9560000079047" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ธุรกิจสเต็มเซลล์หลอกรักษา ทั้งหมดยังอยู่ในการวิจัย ใช้รักษาจริงแค่โรคทางเลือด (MGR Online, 29 มิ.ย. 2556)</a></li>
+            <li><a href="https://www.thansettakij.com/health/605737" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คลอดกฎหมายฟัน "โฆษณาเครื่องสำอาง" อวดอ้างสรรพคุณเปลี่ยนโฉมร่างกาย (ฐานเศรษฐกิจ, 3 ก.ย. 2567)</a></li>
+            <li><a href="https://www.thansettakij.com/health-wellness/health/650023" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คนไทยต้องรู้เท่าทัน! อย.พบโฆษณาผลิตภัณฑ์สุขภาพเกินจริง 2 หมื่นรายการต่อปี (ฐานเศรษฐกิจ, 27 ม.ค. 2569)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>อย. / กสทช. — คดีโฆษณาเกินจริง ดารา อาหารเสริม อาหาร<span class="src-count">29</span></summary>
+          <ul>
+            <li><a href="https://mgronline.com/qol/detail/9580000129711" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.ผุดคู่มือโฆษณา "ยา-อาหาร-เครื่องมือแพทย์" สกัดหลอกลวง โอ้อวดเกินจริง (MGR Online, 23 พ.ย. 2558)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9510000140431" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.คุมเข้มโฆษณาอาหารก่อนออกสื่อ สกัดโฆษณาเวอร์ (MGR Online, 27 พ.ย. 2551)</a></li>
+            <li><a href="https://dis.fda.moph.go.th/detail-infoGraphic?id=2077" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คำโฆษณาเกินจริงที่ "ห้ามใช้" กับผลิตภัณฑ์อาหาร (กองพัฒนาศักยภาพผู้บริโภค อย., 23 พ.ย. 2565)</a></li>
+            <li><a href="https://cemc.fda.moph.go.th/press-release/pr-63" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. ตรวจพบผลิตภัณฑ์เครื่องดื่มสมุนไพร (ตราไออุ่น) ถูกยกเลิกเลขอนุญาตแล้ว แต่ยังพบโฆษณาโอ้อวดเกินจริง (อย., 6 ต.ค. 2566)</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/272163" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ระงับโฆษณาเกินจริง "21 อาหารเสริม-เครื่องสำอาง" ใน 19 ช่องทีวี (ไทยพีบีเอส, 11 พ.ค. 2561)</a></li>
+            <li><a href="https://www.bangkokbiznews.com/lifestyle/918602" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>จาก "กาละแมร์" ถึง "ถั่งเช่า" ต้องรู้ทัน! อาหารเสริมแบบไหน "โฆษณาเกินจริง" (กรุงเทพธุรกิจ, 21 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thansettakij.com/content/464958" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. สั่งฟัน "กาละแมร์" พิธีกรชื่อดัง ดราม่าโฆษณาขายสินค้าเกินจริง (ฐานเศรษฐกิจ, 18 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thansettakij.com/content/465334" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คำเตือน อย. "ถั่งเช่า" โฆษณาเกินจริงยังไง เช็กข้อมูลได้ที่นี่ (ฐานเศรษฐกิจ, 20 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/7868" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อาหารเสริมดารา สอท.แฉผสมยาบ้า (ไทยโพสต์, 26 เม.ย. 2561)</a></li>
+            <li><a href="https://www.thaipbs.or.th/news/content/300417" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.สั่งระงับโฆษณา "กาละแมร์" รีวิวอาหารเสริม ชี้โอ้อวดเกินจริง (ไทยพีบีเอส, 18 ม.ค. 2564)</a></li>
+            <li><a href="https://www.posttoday.com/smart-life/743266" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>โซเชียลแห่ถาม "ปักปากกา" รีวิวด้วยดารา-อินฟลู ถูกกฎหมาย-สร้างมาตรฐานความงามผิด? (โพสต์ทูเดย์, 2 มิ.ย. 2569)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9550000054339" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ห้ามเคเบิลโฆษณายา อาหารเสริม อ้างสรรพคุณเกินจริงหลอกลวงผู้บริโภค (MGR Online, 2 พ.ค. 2555)</a></li>
+            <li><a href="https://www.thansettakij.com/content/465295" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ถั่งเช่า-อาหารเสริม" งานเข้า กสทช.-อย. ฟันโฆษณาเกินจริง (ฐานเศรษฐกิจ, 20 ม.ค. 2564)</a></li>
+            <li><a href="https://www.matichon.co.th/economy/news_956484" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.-กสทช.สั่งระงับโฆษณาผิดกม. 29 ช่อง-สถานีวิทยุ-เว็บไซต์ (มติชน, 15 พ.ค. 2561)</a></li>
+            <li><a href="https://www.matichon.co.th/economy/news_941302" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ตีกรอบโฆษณาผลิตภัณฑ์เสริมอาหาร-เครื่องสำอาง สุ่มเสี่ยง งดเผยแพร่ทันที (มติชน, 4 พ.ค. 2561)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/9225" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.-กสทช.สั่งระงับออกอากาศโฆษณาอาหารเครื่องสำอาง 29 ช่อง 1 สถานีวิทยุ 10 เว็บไซต์ (ไทยโพสต์, 15 พ.ค. 2561)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/8518" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คุมโฆษณาเกินจริง ลดค่านิยมผอม-ขาววัยทีน (ไทยโพสต์, 5 พ.ค. 2561)</a></li>
+            <li><a href="https://www.posttoday.com/smart-life/746154" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>เกณฑ์ อย.ใหม่ เข้มแพทย์ "รีวิวอาหาร-อาหารเสริม" ปชช.ใช้เช็คโฆษณาเกินจริงได้ (โพสต์ทูเดย์, 30 ก.ค. 2569)</a></li>
+            <li><a href="https://mgronline.com/qol/detail/9640000009713" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.ย้ำ โฆษณาสรรพคุณอาหารต้องขออนุญาตก่อน (MGR Online, 31 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/9403" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ดำเนินคดียาสีฟันแอบอ้างชื่อ "กาละแมร์" โฆษณาโอ้อวดเกินจริง — ทันตแพทยสภา/สคบ. (ไทยโพสต์, 17 พ.ค. 2561)</a></li>
+            <li><a href="https://www.thansettakij.com/health-wellness/health/665172" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย. คลอดเกณฑ์โฆษณาอาหารฉบับใหม่ คุมเข้ม "กระท่อม-กัญชา-กัญชง" (ฐานเศรษฐกิจ, 29 ก.ค. 2569)</a></li>
+            <li><a href="https://www.bangkokbiznews.com/health/public-health/1245189" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย.คลอดเกณฑ์ใหม่ คุมโฆษณา "ผลิตภัณฑ์เสริมอาหาร" - "กระท่อม" (กรุงเทพธุรกิจ, 29 ก.ค. 2569)</a></li>
+            <li><a href="https://www.bangkokbiznews.com/health/well-being/1150842" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>รีวิว "ผลิตภัณฑ์สุขภาพ" ไม่ปังแต่พัง รื้อกม.เอาผิดอินฟลูฯ-คนเขียนสคริปต์ (กรุงเทพธุรกิจ, 27 ต.ค. 2567)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/90482" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ฟัน "ถั่งเช่า" ลวงโลก โฆษณาเกินจริง (ไทยโพสต์, 21 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thansettakij.com/content/466732" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ถั่งเช่า" ทำพิษ ออกหมายเรียก "ยิ่งยง ยอดบัวงาม" โฆษณาเกินจริง (ฐานเศรษฐกิจ, 30 ม.ค. 2564)</a></li>
+            <li><a href="https://www.thaipost.net/main/detail/37826" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ออกหมายเรียก 13 ดาราผิด พ.ร.บ.โฆษณา-พ.ร.บ.อาหาร รีวิวสินค้าเครือเมจิกสกิน (ไทยโพสต์, 6 มิ.ย. 2562)</a></li>
+            <li><a href="https://www.matichon.co.th/local/news_320013" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อย่าเชื่อ! "ดารา-นักแสดง" โฆษณาอาหารเสริมเกินจริง อย.ลั่นเจอฝ่าฝืนจับปรับแน่ (มติชน, 13 ต.ค. 2559)</a></li>
+            <li><a href="https://www.khaosod.co.th/breaking-news/news_2588885" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>13 ดารา ไม่รอด โดนหมายเรียกทราบข้อกล่าวหา คดีเมจิกสกิน ชี้ยังเหลืออีก 24 คน! (ข่าวสด, 6 มิ.ย. 2562)</a></li>
+            <li><a href="https://www.thebangkokinsight.com/news/the-bangkok-insight-th/532253/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>เผยผลตรวจอาหารเสริม "กาละแมร์" ปคบ.จ่อเรียก สอบปมอวดอ้างสรรพคุณเกินจริง (The Bangkok Insight, 19 ม.ค. 2564)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>สคบ. — ประกาศคำห้ามใช้และการสั่งตรวจคลินิก<span class="src-count">8</span></summary>
+          <ul>
+            <li><a href="https://www.khaosod.co.th/economics/news_7493056" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>สคบ. ออกประกาศคุมเข้ม โฆษณาสินค้า ไม่ตรงปก ดูเลยมีคำไหนห้ามใช้ (ข่าวสด, 5 ก.พ. 2566)</a></li>
+            <li><a href="https://mgronline.com/politics/detail/9660000011072" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>คุมเข้มโฆษณาไม่ตรงปก ดูเลยคำไหนห้ามใช้ ฝ่าฝืนมีโทษปรับ-จำคุก (MGR Online, 4 ก.พ. 2566)</a></li>
+            <li><a href="https://thestandard.co/?p=745969" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"เสริมบารมี-เพิ่มยอดขาย-รวยเสน่ห์" คำห้ามใช้ สคบ. ออกกฎคุมเข้มโฆษณาไม่ตรงปก (THE STANDARD, 4 ก.พ. 2566)</a></li>
+            <li><a href="https://www.naewna.com/politic/969461" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ศุภมาส ลุยหาดใหญ่ ขีดเส้นตายคลินิกเสริมความงาม สั่งเชือดทันทีหากพบเอาเปรียบผู้บริโภค (แนวหน้า, 8 มิ.ย. 2569)</a></li>
+            <li><a href="https://brandinside.asia/thailand-issues-new-rules-preventing-false-advertising/" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ดีที่สุด สุดยอด ที่หนึ่ง" ใช้คำนี้ในโฆษณาระวังเข้าข่ายหลอกลวงผู้บริโภค หลังราชกิจจาฯ ประกาศกฎหมายโฆษณาใหม่ (Brand Inside, 25 ม.ค. 2566)</a></li>
+            <li><a href="https://www.infoquest.co.th/?p=126074" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ครม.เห็นชอบกำหนดข้อความโฆษณาที่ไม่เป็นธรรมต่อผู้บริโภค-ส่งผลเสียต่อสังคม (อินโฟเควสท์, 14 ก.ย. 2564)</a></li>
+            <li><a href="https://www.amarintv.com/news/politic/554021" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>"ศุภมาส" ห่วงเทรนด์ "ดูดไขมันร่อง 11" สั่ง สคบ. ฟันคลินิกโฆษณาไม่ตรงปก (Amarin TV, 7 ส.ค. 2569)</a></li>
+            <li><a href="https://thestandard.co/?p=1215912" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ศุภมาส ตรวจคลินิกเสริมความงามสงขลา ย้ำต้องทำสัญญาให้ลูกค้าทุกกรณี (THE STANDARD, 8 มิ.ย. 2569)</a></li>
+          </ul>
+        </details>
+        <details class="src-group">
+          <summary>งานวิจัยและบทความวิชาการ (เพิ่มเติม)<span class="src-count">6</span></summary>
+          <ul>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/169727" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>การเฝ้าระวังและจัดการกับการโฆษณาที่ฝ่าฝืนพระราชบัญญัติเครื่องสำอาง โดย อย. ปีงบประมาณ 2554-2558 (วารสารเภสัชกรรมไทย)</a></li>
+            <li><a href="https://so06.tci-thaijo.org/index.php/hej/article/view/275009" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>ปัจจัยที่มีผลต่อการปฏิบัติตามข้อกฎหมายเกี่ยวกับการโฆษณาตาม พ.ร.บ.สถานพยาบาล ของสถานพยาบาลในจังหวัดกาญจนบุรี (วารสารสิ่งแวดล้อมศึกษาการแพทย์และสุขภาพ, 2567)</a></li>
+            <li><a href="https://he02.tci-thaijo.org/index.php/RHPC9Journal/article/view/242475" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>การศึกษาโฆษณาของสถานพยาบาลเอกชนในจังหวัดนครราชสีมา (วารสารศูนย์อนามัยที่ 9, 2562)</a></li>
+            <li><a href="https://he01.tci-thaijo.org/index.php/TJPP/article/view/262322" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>การกระทำผิดกฎหมายเกี่ยวกับการโฆษณาผลิตภัณฑ์สุขภาพของร้านขายยาในจังหวัดชลบุรี (วารสารเภสัชกรรมไทย, 2567)</a></li>
+            <li><a href="https://he05.tci-thaijo.org/index.php/Hss6/article/view/6194" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อุปสรรคในกระบวนการบังคับใช้ พ.ร.บ.สถานพยาบาล พ.ศ. 2541 เพื่อควบคุมการโฆษณาสถานพยาบาล ในกรุงเทพมหานคร (วารสารสาธารณสุขมูลฐาน ภาคกลาง)</a></li>
+            <li><a href="https://so04.tci-thaijo.org/index.php/jkbu/article/view/219163" target="_blank" rel="noopener noreferrer"><span class="new-tag">ใหม่</span>อุปสรรคในกระบวนการบังคับใช้ พ.ร.บ.สถานพยาบาล พ.ศ. 2541 เพื่อควบคุมการโฆษณาสถานพยาบาล (เกษมบัณฑิต, 2562)</a></li>
+          </ul>
+        </details>
+        <p class="src-empty" id="srcEmpty" hidden>ไม่พบแหล่งอ้างอิงที่ตรงกับคำค้น</p>
       </section>
     </aside>
   </div>
 
   <footer>
-    <p id="lastUpdated">ปรับปรุงข้อมูลล่าสุด: 28 กันยายน 2569 (อ้างอิงแนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569, ประกาศแพทยสภาที่ 50/2549, ประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546 และข่าวการตรวจจับสารฉีดเถื่อน/ไม่ขึ้นทะเบียนของ อย.)</p>
+    <p id="lastUpdated">ปรับปรุงข้อมูลล่าสุด: 20 ตุลาคม 2569 — (1) เพิ่มแหล่งอ้างอิงที่ผู้จัดทำเปิดอ่านเนื้อหาจริงอีก 114 แหล่ง (รวมทั้งหมด 202 แหล่ง) และเพิ่มคำต้องห้าม/ต้องระวังอีก 120 คำ (รวม 360 คำ) กับรูปแบบข้อความแบบตัวเลข เช่น “ผลลัพธ์ 90%”, “ถึง 8 มิติ”, “ภายใน … วัน” จากตารางตัวอย่างข้อความของ สบส. (เอกสาร พ.ศ. 2563 และ 2568 — ระบบอ่านไฟล์ PDF ได้เพียงบางส่วนของตาราง จึงอาจยังมีคำในตารางฉบับเต็มที่ไม่ได้ถูกเพิ่ม) และจากข่าวการตรวจจับของ สบส./อย./สคบ. โดยคำที่มาจากข่าวแยกไว้ในหมวด “ถ้อยคำเสี่ยงโฆษณาเกินจริงที่พบในข่าวการตรวจจับ” ซึ่งไม่ใช่รายการคำต้องห้ามทางการ (2) รอบ 19 ต.ค. 2569: เพิ่มแหล่งอ้างอิง 63 แหล่งและคำจากคู่มือ สบส. ฉบับ เม.ย. 2569, ประกาศแพทยสภา ที่ 62/2567 และ 17/2569, เอกสารแนวทางแพทยสภา “ชวนหมอรู้” 2/2566 และงานวิจัยรายจังหวัด (3) คงชุดคำที่ปรับปรุงเมื่อ 1 ต.ค. 2569 (เช่น “ขาวทั่วเรือนร่าง”, “คิวทอง”, “คืนความสาว”, “ไม่ปวด”, “กีหลวม”, “จึ้งเกิน”, “ตัวแม่” จากข่าว Bangkokbiznews 29 ก.ย. 2569, บทสัมภาษณ์รองอธิบดี สบส. ผ่านมติชน/LINE Today และเอกสารแนวทางฯ ที่ สสจ.สมุทรสงคราม เผยแพร่ซ้ำ) ซึ่งมาจากสื่อข่าวและเอกสารเผยแพร่ซ้ำ ยังไม่ได้ตรวจทานกับประกาศราชการฉบับเต็มโดยตรง จึงควรตรวจสอบย้ำกับ สบส. ก่อนใช้เป็นหลักอ้างอิงทางกฎหมาย · อ้างอิงหลัก: แนวทางข้อความโฆษณา ฉบับปรับแก้ 11 ก.พ. 2569, ประกาศแพทยสภาที่ 50/2549 และประกาศกระทรวงสาธารณสุข ฉบับที่ 11 พ.ศ. 2546</p>
     รวบรวมจากประกาศกระทรวงสาธารณสุข, ประกาศกรมสนับสนุนบริการสุขภาพว่าด้วยหลักเกณฑ์การโฆษณาสถานพยาบาล, แนวทางข้อความโฆษณาฉบับปรับแก้ล่าสุด, ประกาศแพทยสภาว่าด้วยคำต้องห้ามและบทลงโทษทางจรรยาบรรณ และแหล่งข้อมูลสาธารณสุข/สื่อวิชาการที่เกี่ยวข้อง (ดูรายการทั้งหมดในแหล่งอ้างอิงด้านบน) ใช้เป็นตัวช่วยคัดกรองเบื้องต้นเท่านั้น อาจมีคลาดเคลื่อนจากการถอดข้อความหรือมีการปรับปรุงเพิ่มเติมภายหลัง ไม่ใช่คำวินิจฉัยทางกฎหมายและไม่ทดแทนการขออนุมัติโฆษณาจาก สบส. หรือการปรึกษาฝ่ายกฎหมายก่อนเผยแพร่จริง
   </footer>
 </div>
@@ -380,15 +651,60 @@
       sev:"high",
       reason:"ผลการรักษาทางการแพทย์ไม่สามารถรับประกันหรือครอบคลุมได้ทุกกรณี ถ้อยคำเชิงอวดอ้าง การันตีผล หรืออ้างความครบถ้วนสมบูรณ์ เข้าข่ายโฆษณาเกินความเป็นจริง",
       fix:"ปรับเป็นถ้อยคำตามข้อเท็จจริง มีผลการศึกษา/หลักฐานอ้างอิงรองรับ หลีกเลี่ยงคำที่สื่อว่าผลลัพธ์แน่นอน ครบถ้วน หรือดีที่สุด",
-      terms:["การันตี","การันตีด้วยรางวัล","รับประกันผล","รับรองผล","เห็นผลจริง 100%","เห็นผลแน่นอน","หายขาด","ดีที่สุดในประเทศ","ดีที่สุด","เก่งที่สุด","สูงสุด","ขั้นสูง","มากที่สุด","ชนะเลิศ","มหัศจรรย์","อันดับ 1","GURU","กูรู","ครบวงจร","คลินิกครบวงจร","ครบครัน","ครั้งเดียวจบ","ครั้งแรกเห็นผลทันที","ครบทุกความเชี่ยวชาญ","ครบทุกด้านจริงๆ","ครบทุกองค์ประกอบ","ครบทุกปัญหาสุดๆ","ครอบคลุมทุกด้าน","ครอบคลุมทุกปัญหา","ครบที่สุด","ครบจบในเข็มเดียว","เทคนิคเฉพาะที่นี่ที่เดียว","ระดับพรีเมี่ยม","นวัตกรรมระดับโลก","ความเร็วแสง","ความเป็นเลิศ","ความนิยมเป็นอันดับต้น","ความงามเหนือกาลเวลา","คงผลลัพธ์ยาวนาน","ควบรวม 2 เทคโนโลยี","คุ้มจริง","คือสวยทันที","ของแท้แน่นอน","ดูดที่ทุกองศา","ด้วยยาสูตรพิเศษ","ได้ผลดีกว่า","ได้ในพริบตา","ดูอ่อนเยาว์ได้ยาวนาน","ได้ลึกและแม่นยำขึ้น","จบในที่เดียว","จบทุกความเจ็บ","เจ้าแรกในไทย","จบปัญหาสิวที่ต้นตอ","ช่วยปลดล็อก...ได้จริง","ช่วยแก้ไขปัญหาทั้งหมดนี้ได้","งานยากที่รักษาได้",
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"เจ็บน้อยที่สุด", fix:"ใช้ได้เพียง “เจ็บน้อย” — ห้ามใช้ “เจ็บน้อยที่สุด” ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส."},
+        {t:"ตรวจลึกถึงระดับฮอร์โมน", fix:"ให้ปรับเป็น “ตรวจระดับฮอร์โมน” ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส."},
+        "ตรวจลึกในระดับเซลล์",
+        {t:"มาตรฐานระดับสูง", fix:"ตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส.ไม่อนุมัติ (รวมถึงในคำประกอบ เช่น “เลเซอร์มาตรฐานระดับสูง”) — หากต้องการอ้างมาตรฐาน ให้ระบุชื่อมาตรฐาน หน่วยงานรับรอง และปีที่ได้รับ พร้อมแนบเอกสารรับรอง"},
+        {t:"การันตีมาตรฐาน", fix:"ห้ามใช้ “การันตี” — หากได้รับการรับรองมาตรฐาน (เช่น LEED, JCI) ให้ใช้ “ได้รับการรับรองมาตรฐาน … เมื่อ พ.ศ. …” พร้อมแนบเอกสารรับรอง ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส."},
+        "ดีที่สุดของโลก",
+        "ความงามระดับสากล",
+        "ความสวยแบบไม่หลอกตา",
+        "Global excellence",
+        "เทคโนโลยีระดับโลก",
+        "เทคนิคพิเศษ",
+        "เทคนิคโดยเฉพาะ",
+        "ถึงขีดสุด",
+        "ถึงชั้นลึก",
+        "เป๊ะทุกจุด",
+        "ความโป๊ะเป็นศูนย์",
+        "เต่งตึงแบบธรรมชาติ",
+        "ตอบโจทย์ทุกการแก้ปัญหา",
+        "ตอบโจทย์ทุกรูปแบบ",
+        "จัดการสิวที่มองไม่เห็นด้วยตาเปล่า",
+        "ผิวสวยเด้งออร่ามาเต็มๆ",
+        "แผลสวย ไร้กังวล",
+        "ฟื้นฟูผิวทันใจ",
+        "ฟื้นตัวเร็วและปลอดภัย",
+        "คืนความมั่นใจให้ผู้หญิง",
+        "คืนความฟิตพิชิตความสาว",
+        "ไขความลับ",
+        "ของวงการยกกระชับ",
+        "ขึ้นชื่อเรื่องทำจมูก",
+        "ผู้นำนวัตกรรม",
+        "ผู้นำการยกกระชับ",
+        "ผู้นำด้านการฉีดสาร",
+        "ผู้นำด้าน",
+        "ผู้นำวงการ",
+        "สลายไขมันได้ทันที",
+        "ถุงนมมาตรฐานพิเศษ",
+        "ที่เดียวเท่านั้น",
+        "ไม่จำกัด ซีซี",
+        "ตรวจซ้ำได้ตลอด",
+        "ตรวจซ้ำได้ภายใน",
+        "การันตี","การันตีด้วยรางวัล","รับประกันผล","รับรองผล","เห็นผลจริง 100%","เห็นผลแน่นอน","หายขาด","ดีที่สุดในประเทศ","ดีที่สุด","เก่งที่สุด","สูงสุด","ขั้นสูง","มากที่สุด","ชนะเลิศ","มหัศจรรย์","อันดับ 1","GURU","กูรู","ครบวงจร","คลินิกครบวงจร","ครบครัน","ครั้งเดียวจบ","ครั้งแรกเห็นผลทันที","ครบทุกความเชี่ยวชาญ","ครบทุกด้านจริงๆ","ครบทุกองค์ประกอบ","ครบทุกปัญหาสุดๆ","ครอบคลุมทุกด้าน","ครอบคลุมทุกปัญหา","ครบที่สุด","ครบจบในเข็มเดียว","เทคนิคเฉพาะที่นี่ที่เดียว","ระดับพรีเมี่ยม","นวัตกรรมระดับโลก","ความเร็วแสง","ความเป็นเลิศ","ความนิยมเป็นอันดับต้น","ความงามเหนือกาลเวลา","คงผลลัพธ์ยาวนาน","ควบรวม 2 เทคโนโลยี","คุ้มจริง","คือสวยทันที","ของแท้แน่นอน","ดูดที่ทุกองศา","ด้วยยาสูตรพิเศษ","ได้ผลดีกว่า","ได้ในพริบตา","ดูอ่อนเยาว์ได้ยาวนาน","ได้ลึกและแม่นยำขึ้น","จบในที่เดียว","จบทุกความเจ็บ","เจ้าแรกในไทย","จบปัญหาสิวที่ต้นตอ","ช่วยปลดล็อก...ได้จริง","ช่วยแก้ไขปัญหาทั้งหมดนี้ได้","งานยากที่รักษาได้","ที่สุดในโลก","ดีที่สุดในโลก","ดีที่สุดในย่าน","แห่งเดียวในโลก","ราคาถูกที่สุด","รายแรก","แห่งแรก","รายเดียว","แห่งเดียว","หนึ่งเดียว","สุดยอด","ยอดเยี่ยม","เยี่ยมที่สุด","ดีเด็ด","เห็นผลทันที","เห็นผล 100%","หายทุกโรค","ลดสูงสุด 100%","คืนความอ่อนเยาว์ได้ในครั้งเดียว","คืนความอ่อนเยาว์","ดูดีทุกองศา","นวัตกรรมใหม่ล่าสุด","ทำถึงเกิน","พส.จีน","พส จีน","ปากกาลดน้ำหนัก","ทำให้ผิวขาว","ทำให้หนุ่มสาวขึ้น","ยินดีคืนเงิน","รับประกันความพึงพอใจ","ปลอดภัย หายห่วง",
         {t:"ล้ำสมัย", fix:"ต้องมีหลักฐาน/ผลการศึกษารองรับความล้ำสมัย มิฉะนั้นเข้าข่ายอวดอ้างเกินจริงตามประกาศแพทยสภาที่ 50/2549"},
         {t:"นำสมัย", fix:"ต้องมีหลักฐานรองรับ มิฉะนั้นเข้าข่ายอวดอ้างเกินจริงตามประกาศแพทยสภาที่ 50/2549"},
         {t:"สวยจริง", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างผลลัพธ์ความงามแบบชักจูงอารมณ์) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
         {t:"อยากสวย", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 หลีกเลี่ยงการใช้ถ้อยคำกระตุ้นอารมณ์ในลักษณะนี้"},
         {t:"งดงาม", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
-        {t:"สวยเหมือนธรรมชาติ", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"}
+        {t:"สวยเหมือนธรรมชาติ", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"ขาวทั่วเรือนร่าง", fix:"เป็นคำต้องห้ามตามแนวทางข้อความโฆษณาสถานพยาบาลฉบับปรับปรุง 2569 (อวดอ้างผลลัพธ์ที่เป็นไปไม่ได้จริง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"ขาวใสทั่วเรือนร่าง", fix:"เป็นคำต้องห้ามตามแนวทางข้อความโฆษณาสถานพยาบาลฉบับปรับปรุง 2569 (อวดอ้างผลลัพธ์ที่เป็นไปไม่ได้จริง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
+        {t:"คิวทอง", fix:"เป็นคำต้องห้ามตามแนวทางข้อความโฆษณาสถานพยาบาลฉบับปรับปรุง 2569 (อ้างความนิยม/ความเชี่ยวชาญเกินจริงโดยไม่มีหลักฐาน เช่น “หมอคิวทอง”) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"}
       ],
-      regex:["ครบ[^\\n]{0,15}จบ"]
+      regex:["ผลลัพธ์\\s?[\\d๐-๙.]+\\s?(%|เปอร์เซ็นต์|เปอร์เซนต์)", "ถึง\\s?[\\d๐-๙]+\\s?มิติ", "ฟื้นตัว[^\\n]{0,8}ภายใน\\s?[\\d๐-๙]+\\s?(วัน|ชั่วโมง|นาที)", "(กำจัด|สลาย|ลด)ไขมัน[^\\n]{0,10}ภายใน\\s?[\\d๐-๙]+\\s?(วัน|ชั่วโมง|นาที)", "ต้องมาที่[^\\n]{0,20}เท่านั้น", "ขาว[^\\n]{0,8}(ใน|ภายใน)\\s?[\\d๐-๙]+\\s?(คืน|วัน|สัปดาห์|อาทิตย์)", "(ผอม|ลดน้ำหนัก)[^\\n]{0,10}ภายใน\\s?[\\d๐-๙]+\\s?(วัน|ชั่วโมง|นาที|สัปดาห์|อาทิตย์)","ครบ[^\\n]{0,15}จบ","เห็นผลภายใน\\s?[\\d๐-๙]+\\s?(วัน|ชั่วโมง|นาที|สัปดาห์|อาทิตย์)","ถึงร้อยละ\\s?9\\d","ถึง\\s?9\\d(\\.\\d+)?\\s?%","เห็นผล\\s?100\\s?(เปอร์เซ็นต์|เปอร์เซนต์)"]
     },
     {
       id:"safety",
@@ -396,7 +712,14 @@
       sev:"high",
       reason:"หัตถการทางการแพทย์ทุกชนิดมีความเสี่ยงหรือผลข้างเคียงได้เสมอ การอ้างว่าปลอดภัย 100% หรือไม่มีผลข้างเคียงเลยเข้าข่ายโฆษณาอันเป็นเท็จ",
       fix:"ระบุความเสี่ยง/ผลข้างเคียงที่อาจเกิดขึ้นตามจริง หรือใช้คำว่า “เป็นไปตามมาตรฐานความปลอดภัยทางการแพทย์” แทนการอ้างแบบเหมารวม",
-      terms:["ปลอดภัย 100%","ปลอดภัยที่สุด","ปลอดภัยแน่นอน","ความปลอดภัยอย่างสูงสุด","ไม่มีผลข้างเคียง","ไม่เจ็บ","ไม่บวม","ไม่ช้ำ","ไม่ต้องพักฟื้น","ไร้ความเสี่ยง","ไม่มีความเสี่ยง"]
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        "ไม่มีสารอันตรายในการฉีดผิวให้ขาว",
+        "ไม่มีสารอันตราย",
+        {t:"มีความปลอดภัยสูง", fix:"ไม่อนุมัติในตารางแนวทางข้อความโฆษณา สบส. — ใช้ถ้อยคำตามข้อเท็จจริง เช่น “เป็นไปตามมาตรฐานความปลอดภัยทางการแพทย์” แทนการเหมารวมว่าปลอดภัยสูง"},
+        {t:"มั่นใจในความปลอดภัย", fix:"ไม่อนุมัติในตารางแนวทางข้อความโฆษณา สบส. — ใช้ถ้อยคำตามข้อเท็จจริง เช่น “เป็นไปตามมาตรฐานความปลอดภัยทางการแพทย์” แทนการเหมารวมว่าปลอดภัย"},
+        "ปลอดภัย 100%","ปลอดภัยที่สุด","ปลอดภัยแน่นอน","ความปลอดภัยอย่างสูงสุด","ไม่มีผลข้างเคียง","ไม่เจ็บ","ไม่ปวด","ไม่บวม","ไม่ช้ำ","ไม่ต้องพักฟื้น","ไร้ความเสี่ยง","ไม่มีความเสี่ยง","ปลอดภัยไร้สารเคมี","ไร้สารเคมี"],
+      regex:["ปลอดภัย\\s?100\\s?(%|เปอร์เซ็นต์|เปอร์เซนต์)"]
     },
     {
       id:"treatment",
@@ -404,7 +727,37 @@
       sev:"high",
       reason:"การใช้คำว่า “รักษา” กับภาวะที่ไม่ใช่โรค หรืออ้างหัตถการ/สารที่ อย. หรือแพทยสภายังไม่รับรอง ทำให้ผู้บริโภคเข้าใจผิดว่าเป็นการรักษาทางการแพทย์ที่ถูกต้อง",
       fix:"ใช้คำว่า “ดูแล/ปรับสภาพผิว” แทน “รักษา” สำหรับภาวะที่ไม่ใช่โรค และระบุเฉพาะหัตถการ/สารที่ได้รับอนุญาตถูกต้องตามกฎหมาย",
-      terms:["รักษาสิว","รักษาฝ้า","รักษาโรคอ้วน","รักษาผมร่วง","ฉีดพลาเซนต้า","ฉีดพลาเซนตา","ฉีดผิวขาว","กลูต้าเข้มข้น","cosmetic surgery","ย้อนวัย","ชะลอวัย","ชะลอความแก่ชรา","ฆ่าเชื้อสิว","ฆ่าไขมัน","ผ่าตัดขั้นสูง","การผ่าตัดขั้นสูง","กำเนิดเซลล์ผิวใหม่","เซลล์บำบัด","คอลลาเจนผิวเด็ก","แช่แข็งฝ้า","เคลียร์สารพิษให้ตับ","ควบคุมการหลั่ง","Growth Factor","PRP","Key Chelation","ฉีดไขมันปรับรูปหน้า","ฉีดสารเติมเต็มของเอเชีย","ขายเซลล์ต้นกำเนิด","stem cell"],
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"แก้จมูก", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ทำจมูก / ปรับจมูก / ศัลยกรรมทรงจมูก” แทนคำว่า “แก้จมูก”"},
+        {t:"แก้คาง", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ปรับคาง / ศัลยกรรมคาง” แทนคำว่า “แก้คาง”"},
+        {t:"แก้หน้าผาก", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ทำหน้าผาก / ปรับหน้าผาก / ศัลยกรรมหน้าผาก” แทนคำว่า “แก้หน้าผาก”"},
+        {t:"ตัดเหนียง", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ลดเหนียง” แทนคำว่า “ตัดเหนียง”"},
+        {t:"ตัดปากกระจับ", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ทำปากกระจับ” แทนคำว่า “ตัดปากกระจับ”"},
+        "โกรทแฟคเตอร์",
+        "โกรทแฟกเตอร์",
+        "การแพทย์แบบองค์รวม",
+        "คีเลชั่นบำบัด",
+        "Chelation Therapy",
+        "ฉีดพลาเซ็นต้า",
+        "ฉีดสารเติมเต็มของเอเซีย",
+        "Cytocare 532",
+        "Fat Killer",
+        "เฟต คิลเลอร์",
+        "แฟตมอลท์",
+        "fat malt",
+        "เมโสเฟต",
+        "Meso Fat",
+        "ฟิลเลอร์แฟต",
+        "ขลิบด้วยหัวไทเทเนียม",
+        "เคลียร์วงแขนแบบเบ็ดเสร็จ",
+        "Total Axilla Technique",
+        "ปล่อยเลือดตามจุดฝังเข็ม",
+        "คืนความสวย",
+        "รักษาสิว","รักษาฝ้า","รักษาโรคอ้วน","รักษาผมร่วง","ฉีดพลาเซนต้า","ฉีดพลาเซนตา","ฉีดผิวขาว","กลูต้าเข้มข้น","cosmetic surgery","ย้อนวัย","ชะลอวัย","ชะลอความแก่ชรา","คืนความสาว","ฆ่าเชื้อสิว","ฆ่าไขมัน","ผ่าตัดขั้นสูง","การผ่าตัดขั้นสูง","กำเนิดเซลล์ผิวใหม่","เซลล์บำบัด","คอลลาเจนผิวเด็ก","แช่แข็งฝ้า","เคลียร์สารพิษให้ตับ","ควบคุมการหลั่ง","Growth Factor","PRP","Key Chelation","ฉีดไขมันปรับรูปหน้า","ฉีดสารเติมเต็มของเอเชีย","ขายเซลล์ต้นกำเนิด","stem cell","รักษาเบาหวาน","ลดความดันโลหิต","ป้องกันโรคหัวใจ","ฆ่าเซลล์มะเร็ง","กินแล้วไม่เป็นมะเร็ง","กินแล้วรักษาโรคร้ายแรงได้","รับประทานแล้วไม่ต้องใช้ยา",
+        {t:"Anti-Aging", fix:"แพทยสภาไม่ได้รับรองสาขา Anti-Aging (รวมถึง PRP และ Stem Cell) ห้ามใช้ในลักษณะอ้างความรู้ความชำนาญเฉพาะสาขา — ให้ใช้ถ้อยคำตามข้อเท็จจริงของหัตถการที่ได้รับอนุญาต"},
+        {t:"Anti Aging", fix:"แพทยสภาไม่ได้รับรองสาขา Anti-Aging (รวมถึง PRP และ Stem Cell) ห้ามใช้ในลักษณะอ้างความรู้ความชำนาญเฉพาะสาขา — ให้ใช้ถ้อยคำตามข้อเท็จจริงของหัตถการที่ได้รับอนุญาต"}
+      ],
       regex:["โรค[^\\n]{0,15}รักษาได้"]
     },
     {
@@ -416,13 +769,47 @@
       terms:["หน้าแก่","หน้าโทรม","คางสองชั้น","ริ้วรอยเต็มหน้า","อ้วนไม่มีใครรัก"]
     },
     {
+      id:"inappropriate",
+      label:"ถ้อยคำไม่เหมาะสม/สองแง่สองง่าม หรือคำสแลงที่ไม่เหมาะกับการสื่อสารทางการแพทย์",
+      sev:"high",
+      reason:"ตามแนวทางข้อความโฆษณาสถานพยาบาลฉบับปรับปรุง 2569 สบส. ระบุว่าถ้อยคำลักษณะนี้ไม่เหมาะสมกับการสื่อสารทางการแพทย์ บางคำสื่อไปในเชิงลามกอนาจาร/สองแง่สองง่าม บางคำเป็นคำสแลงกระตุ้นอารมณ์ที่ไม่สุภาพหรือไม่เป็นมืออาชีพสำหรับโฆษณาสถานพยาบาล",
+      fix:"หลีกเลี่ยงคำสแลงหรือถ้อยคำสองแง่สองง่าม ให้ใช้ภาษาทางการแพทย์ที่สุภาพและตรงไปตรงมาแทน",
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"จิมิ", fix:"เป็นคำสแลง/สื่อทางเพศ ไม่เหมาะกับการสื่อสารทางการแพทย์ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. — ควรใช้ศัพท์ทางการแพทย์ เช่น “ช่องคลอด” หรือคำทดแทนที่ตารางกำหนด"},
+        "จิ๋มตด",
+        "งูใหญ่",
+        "ดูแพง",
+        "ตัวแรง",
+        "ตัวฮิต",
+        "ตัวฮอต",
+        "ถอยหมอน",
+        "รุ่นนี้ปังสุด",
+        "ดูดไขมันออกจุกๆ",
+        
+        {t:"กีหลวม", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้คำว่า “ยกกระชับช่องคลอด” แทน"},
+        {t:"จึ้งเกิน", fix:"เป็นคำสแลงกระตุ้นอารมณ์ที่ไม่เหมาะกับการสื่อสารทางการแพทย์ตามแนวทางฉบับปรับปรุง 2569 ให้ปรับเป็นถ้อยคำที่สุภาพและตรงไปตรงมา"},
+        {t:"ตัวแม่", fix:"เป็นคำสแลงอวดอ้างสถานะที่ไม่เหมาะกับการสื่อสารทางการแพทย์และไม่มีหลักฐานรองรับ ตามแนวทางฉบับปรับปรุง 2569"},
+        {t:"กีฟิต", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้ศัพท์ทางการแพทย์ เช่น “ยกกระชับช่องคลอด” แทน"},
+        {t:"กล้วยแข็ง", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้ศัพท์ทางการแพทย์ที่เป็นกลางแทน"},
+        {t:"หลวม ฟิต", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้ศัพท์ทางการแพทย์ เช่น “ยกกระชับช่องคลอด” แทน"},
+        {t:"แข็ง อึด ถึก ทน", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้ศัพท์ทางการแพทย์ที่เป็นกลางแทน"},
+        {t:"อึด ถึก ทน", fix:"เข้าข่ายคำไม่เหมาะสม/ส่อทางเพศตามแนวทางฉบับปรับปรุง 2569 — ควรใช้ศัพท์ทางการแพทย์ที่เป็นกลางแทน"},
+        {t:"ความสวยรอไม่ได้", fix:"เป็นถ้อยคำเร่งเร้า/กดดันการตัดสินใจ ไม่เหมาะกับสื่อโฆษณาทางการแพทย์ตามแนวทางฉบับปรับปรุง 2569"}
+      ],
+      regex:["จู๋"]
+    },
+    {
       id:"stats",
       label:"อ้างสถิติ/จำนวนเคส/มาตรฐานเกินจริงโดยไม่มีหลักฐาน",
       sev:"medium",
       reason:"ตัวเลขหรือมาตรฐานเชิงเทคนิคที่ไม่มีแหล่งอ้างอิงตรวจสอบได้ อาจเข้าข่ายโฆษณาอันเป็นเท็จหรือทำให้เข้าใจผิด",
       fix:"หากต้องการระบุตัวเลข/มาตรฐาน ต้องมีหลักฐาน/เอกสารอ้างอิงที่ตรวจสอบได้แนบประกอบการยื่นขออนุมัติโฆษณา",
-      terms:["ความแม่นยำสูง 99.9%","เครื่องมือรับรองโดย USA และไทย","ได้รับการจดสิทธิบัตรจาก USA","ความหนาแน่นสูง ความบริสุทธิ์ คุณภาพสูง"],
-      regex:["(มากกว่า|กว่า)\\s?[\\d,]+\\s?(เคส|ยูนิต|ราย|คน)","[\\d,]{3,}\\s?(เคส|ยูนิต)"]
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"มาตรฐานสากล", fix:"ใช้ได้เฉพาะเมื่อมีเอกสารรับรองมาตรฐานสากลจริงที่ตรวจสอบได้ และระบุชื่อมาตรฐาน/หน่วยงานรับรอง/ปีที่ได้รับ ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส."},
+        "ความแม่นยำสูง 99.9%","เครื่องมือรับรองโดย USA และไทย","ได้รับการจดสิทธิบัตร จาก USA","ความหนาแน่นสูง ความบริสุทธิ์ คุณภาพสูง","มีงานวิจัยรับรอง","ผ่านมาตรฐานจากสถาบันการทดสอบจากต่างประเทศ"],
+      regex:["ความแม่นยำ[^\\n]{0,8}[\\d๐-๙.]+\\s?%", "[\\d๐-๙.,]+\\s?(ล้าน|แสน|หมื่น)\\s?(ยูนิต|เคส|ราย|คน|ซีซี|cc)", "(ฉีด|เติม|ทำ)มา[^\\n]{0,8}[\\d๐-๙.,]+\\s?(ซีซี|cc)","ทำมา\\s?[\\d,]+\\s?(ราย|เคส|คน)","ผ่านมือ[^\\n]{0,8}[\\d,]+\\s?(ราย|เคส|คน)","(มากกว่า|กว่า)\\s?[\\d,]+\\s?(เคส|ยูนิต|ราย|คน)","[\\d,]{3,}\\s?(เคส|ยูนิต)"]
     },
     {
       id:"credential",
@@ -430,7 +817,15 @@
       sev:"high",
       reason:"การอ้างความเชี่ยวชาญ สัญชาติแพทย์ แหล่งผลิตภัณฑ์ หรือใช้ภาพ/ชื่อบุคคลมีชื่อเสียงโดยไม่ได้รับอนุญาตหรือไม่ตรงความจริง เข้าข่ายหลอกลวงผู้บริโภค",
       fix:"ระบุคุณวุฒิแพทย์ตามจริงพร้อมเลขใบประกอบวิชาชีพเวชกรรม (ใช้คำว่า “ผู้ชำนาญการด้าน” แทน “เชี่ยวชาญ” เมื่อมีหลักฐานรับรองจริง) และต้องมีหนังสือยินยอมหากอ้างอิงบุคคลที่สาม",
-      terms:["หมอผิวหนังโดยเฉพาะ","หมอเกาหลี","แพทย์ผู้เชี่ยวชาญระดับโลก","ผู้เชี่ยวชาญ","เชี่ยวชาญด้าน","เชี่ยวชาญที่สุด","ชื่อดัง","ซิลิโคนตัวดัง","ซิลิโคนจากประเทศ","คลินิกความงามจากประเทศเกาหลี","งานผิวจากอิตาลี","จักษุแพทย์อันดับต้นของไทย","คลินิกที่ดาราและเซเลบริตี้ให้ความไว้วางใจ"]
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"อย. รับรอง", fix:"การขึ้นทะเบียน/จดแจ้งกับ อย. ไม่ใช่การรับรองสรรพคุณหรือผลลัพธ์ ห้ามใช้ถ้อยคำสื่อว่า อย. รับรองผล — ให้ระบุเลขทะเบียน/เลขจดแจ้งตามจริงแทน (อ้างอิงข่าว อย. เรื่องโฆษณาเครื่องสำอาง/ผลิตภัณฑ์สุขภาพ)"},
+        "แพทย์เรียนจบหลักสูตรจากเกาหลี",
+        {t:"โค้ชความงามส่วนตัว", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ที่ปรึกษาด้านความงาม” แทนคำว่า “โค้ชความงามส่วนตัว”"},
+        "คลินิกที่ดาราและเซเลบริตี้นำไว้วางใจ",
+        "หมอผิวหนังโดยเฉพาะ","หมอเกาหลี","แพทย์ผู้เชี่ยวชาญระดับโลก","ผู้เชี่ยวชาญ","เชี่ยวชาญด้าน","เชี่ยวชาญที่สุด","ชื่อดัง","ซิลิโคนตัวดัง","ซิลิโคนจากประเทศ","คลินิกความงามจากประเทศเกาหลี","งานผิวจากอิตาลี","จักษุแพทย์อันดับต้นของไทย","คลินิกที่ดาราและเซเลบริตี้ให้ความไว้วางใจ","แพทย์แนะนำ","แพทย์รับรอง","ผู้เชี่ยวชาญยืนยัน","แพทย์ทั่วโลกยอมรับ","หมอเทวดา",
+        {t:"เชี่ยวชาญ", fix:"คู่มือ สบส. ไม่อนุมัติคำว่า “เชี่ยวชาญ/ผู้เชี่ยวชาญ” ให้ใช้ “ผู้ชำนาญการ” แทนเมื่อมีหลักฐานรับรองจริง และโฆษณาความชำนาญได้เฉพาะสาขาที่แพทยสภารับรอง (วุฒิบัตร/อนุมัติบัตร/ประกาศนียบัตร) — ห้ามอ้างเชี่ยวชาญ PRP, Stem Cell หรือ Anti-Aging"}
+      ]
     },
     {
       id:"compare",
@@ -438,7 +833,10 @@
       sev:"medium",
       reason:"การโฆษณาเปรียบเทียบในเชิงทับถมคู่แข่ง หรืออ้างว่าดี/ถูกกว่าที่อื่นโดยไม่มีหลักฐาน เข้าข่ายโฆษณาที่ไม่เป็นธรรมทางการค้า",
       fix:"นำเสนอจุดเด่นของตนเองตามข้อเท็จจริง โดยไม่พาดพิงหรือเปรียบเทียบกับสถานพยาบาลอื่น",
-      terms:["ดีกว่าที่อื่น","ถูกกว่าคู่แข่ง","ที่อื่นไม่ปลอดภัย","คลินิกอื่นไม่ได้มาตรฐาน","เปรียบเทียบกับคลินิกอื่น","แกะจมูกมาจากที่อื่น",
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        "แก้จมูกมาจากที่อื่น",
+        "ดีกว่าที่อื่น","ถูกกว่าคู่แข่ง","ที่อื่นไม่ปลอดภัย","คลินิกอื่นไม่ได้มาตรฐาน","เปรียบเทียบกับคลินิกอื่น","แกะจมูกมาจากที่อื่น",
         {t:"เหนือกว่า", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างความเหนือกว่าโดยไม่มีหลักฐานเทียบเคียง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"},
         {t:"สูงกว่า", fix:"เป็นคำต้องห้ามตามประกาศแพทยสภาที่ 50/2549 (อ้างความเหนือกว่าโดยไม่มีหลักฐานเทียบเคียง) ให้ปรับเป็นถ้อยคำตามข้อเท็จจริง"}
       ]
@@ -449,7 +847,14 @@
       sev:"medium",
       reason:"ประกาศกระทรวงสาธารณสุขห้ามโฆษณาบริการฟรี การลด แลก แจก แถม หรือใช้ของรางวัล/การชิงโชคเชื่อมโยงกับบริการทางการแพทย์ ยกเว้นกรณีเพื่อการกุศลหรือเป็นราคาที่ตกลงไว้ล่วงหน้ากับกลุ่มลูกค้า",
       fix:"หลีกเลี่ยงการเสนอบริการฟรีหรือของรางวัล/ชิงโชคที่ผูกกับบริการทางการแพทย์ เว้นแต่เข้าเงื่อนไขข้อยกเว้นและระบุเงื่อนไขให้ชัดเจน",
-      terms:["ฟรี","แจกฟรี","แถมฟรี","ลดราคา","ส่วนลด","ของรางวัล","ชิงโชค"]
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"ศัลย์ฟรี", fix:"ใช้ได้เฉพาะเมื่อระบุราคา ระยะเวลา และเงื่อนไขครบถ้วนชัดเจน (รวมถึง “มาศัลย์ฟรี”) ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส."},
+        "แคมเปญสุดคุ้ม",
+        "แคมแปญสุดคุ้ม",
+        "ช้อปจัดเต็ม",
+        "ชวนเพื่อนมาหารได้",
+        "ฟรี","แจกฟรี","แถมฟรี","ลดราคา","ส่วนลด","ของรางวัล","ชิงโชค"]
     },
     {
       id:"conditional",
@@ -458,8 +863,11 @@
       reason:"คำเหล่านี้ไม่ได้ถูกห้ามเด็ดขาด แต่ สบส. กำหนดให้ต้องมีคำหรือเงื่อนไขกำกับให้ครบถ้วน หรือให้ใช้คำทดแทนที่ถูกต้อง มิฉะนั้นจะเข้าข่ายทำให้เข้าใจผิด",
       fix:"ตรวจสอบเงื่อนไขเฉพาะของคำนี้ให้ครบก่อนใช้งานจริง",
       terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        {t:"คลินิก รักษานอนกรน", fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ไม่อนุมัติรูปแบบนี้ — ตรวจสอบคำทดแทนที่ตารางกำหนดก่อนใช้ (เช่น ใช้ “บริการ…” แทนคำว่า “คลินิก” เมื่อไม่ใช่สถานพยาบาลประเภทคลินิก)"},
+        
         {t:"ดึงหน้าด้วยเลเซอร์", fix:"ควรใช้คำว่า “ยกกระชับหน้าด้วยเลเซอร์” แทน"},
-        {t:"คลินิกลดน้ำหนัก", fix:"ควรใช้คำว่า “บริการลดน้ำหนัก” แทนการใช้คำว่า “คลินิก” ในบริบทนี้"},
+        {t:"คลินิก ลดน้ำหนัก", fix:"ควรใช้คำว่า “บริการลดน้ำหนัก” แทนการใช้คำว่า “คลินิก” ในบริบทนี้"},
         {t:"คุมหิว", fix:"ควรใช้คำว่า “ลดความอยากอาหาร” แทน"},
         {t:"ราคาเริ่มต้น", fix:"ต้องระบุเงื่อนไข ระยะเวลา และราคาสุทธิรวมค่าแพทย์ให้ครบถ้วน"},
         {t:"ราคาเดิม", fix:"ห้ามตั้งราคาเดิมสูงเกินจริงเพื่อให้ราคาลดดูน่าดึงดูดกว่าความเป็นจริง (ราคาลวง) ต้องเป็นราคาที่เคยขายจริงเท่านั้น"},
@@ -470,7 +878,11 @@
         {t:"นวัตกรรม", fix:"ต้องมีหลักฐาน/ผลการศึกษารองรับ มิฉะนั้นเข้าข่ายอวดอ้างเกินจริง"},
         {t:"ปลอดภัย", fix:"ใช้ได้ถ้าไม่ใช่การอ้างแบบสัมบูรณ์ (100%/ที่สุด/ไร้ความเสี่ยง) ตรวจสอบบริบทให้ดี"},
         {t:"จัดฟัน", fix:"ใช้ได้เฉพาะกรณีทันตกรรมทั่วไปที่มีคำประกอบครบตามเงื่อนไขที่กำหนด"},
-        {t:"ดูดไขมัน", fix:"ต้องเป็นสถานพยาบาลที่มีใบอนุญาตห้องผ่าตัด (Operating Room) ถูกต้อง จึงจะโฆษณาได้"}
+        {t:"ดูดไขมัน", fix:"ต้องเป็นสถานพยาบาลที่มีใบอนุญาตห้องผ่าตัด (Operating Room) ถูกต้อง จึงจะโฆษณาได้"},
+        {t:"ที่สุด", fix:"คำขยายระดับสูงสุด (“…ที่สุด”) ต้องมีหลักฐานเปรียบเทียบที่ตรวจสอบได้ มิฉะนั้นเข้าข่ายอวดอ้างเกินจริง — ประกาศคณะกรรมการว่าด้วยการโฆษณาและคู่มือ สบส. ถือว่าเป็นคำต้องระวัง"},
+        {t:"ที่หนึ่ง", fix:"หากใช้ในความหมายว่าเป็น “อันดับหนึ่ง/ที่หนึ่ง” เป็นการอวดอ้างเกินจริง ห้ามใช้ (ใช้ได้เฉพาะความหมายลำดับทั่วไป เช่น ชั้นที่หนึ่ง)"},
+        {t:"ได้รับรางวัล", fix:"ต้องมีเอกสารรับรองรางวัลจริงที่ตรวจสอบได้ และระบุผู้มอบรางวัล/ปีให้ชัดเจน — “การันตีด้วยรางวัล” เป็นคำต้องห้ามในคู่มือ สบส."},
+        {t:"อาจารย์แพทย์", fix:"ห้ามใช้ เว้นแต่มีตำแหน่งทางวิชาการอย่างเป็นทางการรองรับ และต้องขออนุญาตก่อน (แพทยสภา ชวนหมอรู้ 2/2566)"}
       ],
       regex:["รับประกัน[^\\n]{0,12}ปี"]
     },
@@ -503,6 +915,72 @@
         "(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox)\\s{0,2}(เกาหลี|จีน|อเมริกา|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)",
         "(เกาหลี|จีน|อเมริกา|ญี่ปุ่น|เยอรมัน|ฝรั่งเศส|อังกฤษ|ไต้หวัน|อิตาลี|สวิส)\\s{0,2}(ฟิลเลอร์|filler|โบท็อกซ์|โบท็อก|botox)"
       ]
+    },
+    {
+      id:"belief",
+      label:"อ้างโชคลาภ / ความเชื่อ / ผลข้ามภพ",
+      sev:"medium",
+      reason:"การผูกบริการทางการแพทย์กับโชคลาภ ดวง หรือผลลัพธ์ข้ามภพ เป็นการชักจูงด้วยความเชื่อ ไม่ใช่ข้อเท็จจริงทางการแพทย์ — กสทช. เคยสั่งระงับโฆษณาศัลยกรรมที่อ้างว่าทำให้โชคดี ร่ำรวย (Pattaya Mail) และประกาศคณะกรรมการว่าด้วยการโฆษณาที่มีผล ม.ค. 2566 ห้ามใช้ความเชื่อส่วนบุคคลชักจูงผู้บริโภค",
+      fix:"ตัดถ้อยคำเชิงโชคลาภ/ความเชื่อ/ชาติหน้าออก และบอกเฉพาะข้อเท็จจริงของบริการ",
+      terms:[
+        /* รอบ 20 ต.ค. 2569 */
+        "ศักดิ์สิทธิ์",
+        "ปาฏิหาริย์",
+        "โชคลาภ","เสริมดวง","เสริมโชค","เสริมบารมี","ใครเห็นใครรัก","แก้เคราะห์","แก้กรรม"],
+      regex:["(ถึง|ยัน|ไป|ข้าม)\\s?ชาติหน้า"]
+    },
+    {
+      id:"disclaimer",
+      label:"ข้อความสงวนสิทธิ์ / เงื่อนไขไม่โปร่งใส",
+      sev:"medium",
+      reason:"สบส. (7 เม.ย. 2569) และประกาศคณะกรรมการว่าด้วยการโฆษณาถือว่าข้อความที่เปิดช่องให้ผู้โฆษณาเปลี่ยนเงื่อนไข/ราคาได้โดยไม่แจ้งล่วงหน้า ทำให้ผู้บริโภคเสียเปรียบและไม่โปร่งใส",
+      fix:"ระบุเงื่อนไข ราคาสุทธิ และระยะเวลาโปรโมชันให้ชัดเจน และตัดข้อความสงวนสิทธิ์เปลี่ยนแปลงโดยไม่แจ้งล่วงหน้าออก",
+      terms:["ขอสงวนสิทธิ์","สงวนสิทธิ์","โดยไม่ต้องแจ้งให้ทราบล่วงหน้า","โดยไม่ต้องแจ้งล่วงหน้า","โดยไม่แจ้งล่วงหน้า"]
+    },
+    {
+      id:"guidelineTable",
+      label:"คำต้องระวังตามตารางแนวทางข้อความโฆษณา สบส. (ขึ้นกับบริบท)",
+      sev:"medium",
+      reason:"คำเหล่านี้อยู่ในช่อง “โฆษณาไม่ได้” ของตารางตัวอย่างข้อความที่ สบส. ใช้พิจารณาอนุมัติโฆษณา (เอกสาร พ.ศ. 2563 และ 2568) แต่เป็นคำทั่วไปที่ความหมายขึ้นกับบริบท จึงจัดเป็นความเสี่ยงปานกลาง — ให้ผู้ตรวจดูว่าใช้ในเชิงอวดอ้างหรือไม่ และเทียบกับตารางฉบับเต็มก่อนเผยแพร่",
+      fix:"คำนี้อยู่ในตารางแนวทางข้อความโฆษณาของ สบส. ว่าโฆษณาไม่ได้ (ขึ้นกับบริบท) — ปรับเป็นถ้อยคำตามข้อเท็จจริงหรือขออนุมัติข้อความนี้กับ สบส. ก่อนใช้",
+      terms:[
+        "ตรงจุด",
+        "ชั้นสูง",
+        "ของแท้",
+        "ตัวเลือกที่ใช่",
+        "เปลี่ยนชีวิตใหม่",
+        "ฟื้นสภาพ",
+        "ไม่จำกัด",
+        "Perfect",
+        "เพอร์เฟค",
+        "เพอเฟค",
+        "ปฏิวัติ",
+        "Revolution",
+        {t:"เติมเต็มความมั่นใจ", requires:["ช่วย"], fix:"ตามตารางแนวทางข้อความโฆษณาสถานพยาบาลของ สบส. ให้ใช้ “ช่วยเติมเต็มความมั่นใจ” (ไม่ใช่ “เติมเต็มความมั่นใจ” ลอยๆ)"}
+      ]
+    },
+    {
+      id:"newsCases",
+      label:"ถ้อยคำเสี่ยงโฆษณาเกินจริงที่พบในข่าวการตรวจจับ (ใช้ดุลยพินิจ)",
+      sev:"medium",
+      reason:"คำเหล่านี้ไม่ใช่รายการคำต้องห้ามทางการ แต่เป็นลักษณะถ้อยคำที่หน่วยงาน (อย./สบส./สคบ.) หรือข่าวการตรวจจับระบุว่าเข้าข่ายโฆษณาเกินจริง เช่น อ้างผลเร็ว อ้างผิวขาว/ผอมแบบรวดเร็ว หรืออ้างว่าทดแทนการศัลยกรรม — ใช้เป็นข้อควรระวังและต้องดูบริบทร่วมกับเอกสารที่ได้รับอนุมัติ",
+      fix:"ปรับเป็นถ้อยคำตามข้อเท็จจริง ไม่ระบุความเร็ว/ความแน่นอนของผล และไม่เปรียบว่าทดแทนการผ่าตัด หากเป็นผลิตภัณฑ์ต้องตรวจเลขทะเบียน/จดแจ้งและขออนุมัติโฆษณาให้ถูกต้อง",
+      terms:[
+        "ขาวไว",
+        "ขาวใสอย่างรวดเร็ว",
+        "ผอมเร็ว",
+        "เปลี่ยนสีผิว",
+        "เห็นผลเร็ว",
+        "รักษาสารพัดโรค",
+        "สวยทันตา",
+        "สวยชัวร์",
+        "ฉีดแล้วผอม",
+        "ทำให้ผอม",
+        "ฉีดผิวครบวงจร",
+        "ทดแทนการศัลยกรรม",
+        "ทดแทนศัลยกรรม",
+        "แทนที่การศัลยกรรม"
+      ]
     }
   ];
 
@@ -520,7 +998,9 @@
     {term:"Dermatologist", note:"ใช้ได้เฉพาะแพทย์ที่มีวุฒิบัตรแพทย์ผิวหนังจริงเท่านั้น"},
     {term:"ผู้ชำนาญการด้าน…", note:"คำแนะนำใช้แทน “เชี่ยวชาญ/ผู้เชี่ยวชาญ” เมื่อมีหลักฐานรับรองจริง"},
     {term:"โปรแกรมฉีดฟิลเลอร์ / โปรแกรมฉีดโบทูลินัมท็อกซิน", note:"รูปแบบคำที่ถูกต้อง แทน “ฉีดฟิลเลอร์ / ฉีดโบท็อกซ์”"},
-    {term:"เป็นตัวอย่างผลจากการเข้ารับการรักษาพยาบาลสำหรับผู้ป่วยเฉพาะราย", note:"ข้อความบังคับที่ต้องกำกับภาพก่อน-หลังทุกครั้ง"}
+    {term:"เป็นตัวอย่างผลจากการเข้ารับการรักษาพยาบาลสำหรับผู้ป่วยเฉพาะราย", note:"ข้อความบังคับที่ต้องกำกับภาพก่อน-หลังทุกครั้ง"},
+    {term:"กำจัดขนบุฟเฟ่ต์", note:"ใช้ได้ ต้องระบุเงื่อนไขให้ครบ และมีข้อความ “ขึ้นอยู่กับดุลยพินิจของแพทย์” กำกับ (ตัวอย่างข้อความ สบส.)"},
+    {term:"แสดงภาพ/ชื่อแพทย์", note:"ใช้ได้ ต้องแสดงชื่อ-นามสกุลจริงและเลขใบประกอบวิชาชีพ พร้อมแบบ ส.พ.6 — ใช้ชื่อเล่นได้เฉพาะเมื่อมีชื่อจริงกำกับ"}
   ];
 
   var SAMPLE = "คลินิกของเรา การันตีผลลัพธ์ 100% ปลอดภัยไม่มีผลข้างเคียงแน่นอน ฉีดฟิลเลอร์โดยหมอเกาหลีระดับพรีเมี่ยม ดีที่สุดในกรุงเทพฯ มีเคสมากกว่า 10,000 เคส ราคาเริ่มต้น 2,900 บาท รับประกัน 5 ปี";
@@ -981,6 +1461,45 @@
       btnCheck.disabled = false;
     });
   }
+
+  function initSourceFilter(){
+    var input = document.getElementById("srcFilter");
+    if(!input) return;
+    var groups = Array.prototype.slice.call(document.querySelectorAll(".sources .src-group"));
+    var empty = document.getElementById("srcEmpty");
+    // Keep the displayed counts in sync with the actual list, so adding a
+    // <li> later (e.g. by the monthly update) never leaves a stale number.
+    var totalEl = document.querySelector(".sources .src-total");
+    var total = 0;
+    groups.forEach(function(g){
+      var n = g.querySelectorAll("li").length;
+      total += n;
+      var c = g.querySelector(".src-count");
+      if(c) c.textContent = n;
+    });
+    if(totalEl) totalEl.textContent = total + " แหล่ง";
+    var newEl = document.getElementById("srcNewCount");
+    if(newEl) newEl.textContent = document.querySelectorAll(".sources li .new-tag").length;
+    var openState = groups.map(function(g){ return g.open; });
+    input.addEventListener("input", function(){
+      var q = input.value.trim().toLowerCase();
+      var anyVisible = false;
+      groups.forEach(function(g, i){
+        var items = g.querySelectorAll("li");
+        var shown = 0;
+        Array.prototype.forEach.call(items, function(li){
+          var hit = !q || li.textContent.toLowerCase().indexOf(q) >= 0;
+          li.hidden = !hit;
+          if(hit) shown++;
+        });
+        g.hidden = shown === 0;
+        if(shown > 0) anyVisible = true;
+        g.open = q ? shown > 0 : openState[i];
+      });
+      if(empty) empty.hidden = anyVisible || !q;
+    });
+  }
+  initSourceFilter();
 
   initOcrCheck();
 })();
